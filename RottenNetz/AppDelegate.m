@@ -7,11 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#import "UserListController.h"
+#import "User.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    User * user1 = [[User alloc] init];
+    user1.name = @"Peter";
+    user1.tracks = [[NSMutableArray alloc] initWithObjects:@"DUMMY", nil];
+    
+    User * user2 = [[User alloc] init];
+    user2.name = @"Heinz";
+    user2.tracks = [[NSMutableArray alloc] initWithObjects:@"DUMMY", @"DUMMY2", nil];
+    
+    NSMutableArray * users = [[NSMutableArray alloc] initWithObjects: user1, user2, nil];
+    
+    UITabBarController * tbc = (UITabBarController *) self.window.rootViewController;
+    UINavigationController * nc = [[tbc viewControllers] objectAtIndex:1];
+    UserListController * ulc = [[nc viewControllers] objectAtIndex:0];
+    ulc.users = users;
     return YES;
 }
 
