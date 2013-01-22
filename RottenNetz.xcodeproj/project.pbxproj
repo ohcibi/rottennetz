@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E250C09F16AEF08600022B70 /* tracks.png in Resources */ = {isa = PBXBuildFile; fileRef = E250C09E16AEF08600022B70 /* tracks.png */; };
+		E250C0A116AEF5E700022B70 /* footprints.png in Resources */ = {isa = PBXBuildFile; fileRef = E250C0A016AEF5E700022B70 /* footprints.png */; };
+		E250C0A416AEF9BE00022B70 /* TrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0A316AEF9BE00022B70 /* TrackingViewController.m */; };
+		E250C0A716AF01C600022B70 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0A616AF01C600022B70 /* Track.m */; };
 		E2D81DD916AEB7D70029D8BA /* RottenBoardIPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D81DD816AEB7D70029D8BA /* RottenBoardIPhone.storyboard */; };
 		E2D81DE016AEC10E0029D8BA /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D81DDC16AEC10E0029D8BA /* map.png */; };
 		E2D81DE616AECDD30029D8BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D81DE516AECDD30029D8BA /* MapKit.framework */; };
 		E2D81DEA16AEDAB00029D8BA /* UserListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D81DE916AEDAB00029D8BA /* UserListController.m */; };
 		E2D81DED16AEDB4B0029D8BA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D81DEC16AEDB4B0029D8BA /* User.m */; };
+		E2D81DF016AEEBD50029D8BA /* TracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D81DEF16AEEBD50029D8BA /* TracksViewController.m */; };
 		E2EBAD6116AEB5EF00156BE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6016AEB5EF00156BE5 /* UIKit.framework */; };
 		E2EBAD6316AEB5EF00156BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6216AEB5EF00156BE5 /* Foundation.framework */; };
 		E2EBAD6516AEB5EF00156BE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6416AEB5EF00156BE5 /* CoreGraphics.framework */; };
@@ -39,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E250C09E16AEF08600022B70 /* tracks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tracks.png; sourceTree = "<group>"; };
+		E250C0A016AEF5E700022B70 /* footprints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprints.png; sourceTree = "<group>"; };
+		E250C0A216AEF9BE00022B70 /* TrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingViewController.h; sourceTree = "<group>"; };
+		E250C0A316AEF9BE00022B70 /* TrackingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingViewController.m; sourceTree = "<group>"; };
+		E250C0A516AF01C600022B70 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		E250C0A616AF01C600022B70 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		E2D81DD816AEB7D70029D8BA /* RottenBoardIPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RottenBoardIPhone.storyboard; sourceTree = "<group>"; };
 		E2D81DDC16AEC10E0029D8BA /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		E2D81DE516AECDD30029D8BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -46,6 +57,8 @@
 		E2D81DE916AEDAB00029D8BA /* UserListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListController.m; sourceTree = "<group>"; };
 		E2D81DEB16AEDB4B0029D8BA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E2D81DEC16AEDB4B0029D8BA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E2D81DEE16AEEBD50029D8BA /* TracksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksViewController.h; sourceTree = "<group>"; };
+		E2D81DEF16AEEBD50029D8BA /* TracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksViewController.m; sourceTree = "<group>"; };
 		E2EBAD5C16AEB5EF00156BE5 /* RottenNetz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottenNetz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EBAD6016AEB5EF00156BE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2EBAD6216AEB5EF00156BE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +116,8 @@
 		E2D81DDA16AEC10E0029D8BA /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				E250C0A016AEF5E700022B70 /* footprints.png */,
+				E250C09E16AEF08600022B70 /* tracks.png */,
 				E2D81DDC16AEC10E0029D8BA /* map.png */,
 			);
 			path = icons;
@@ -113,6 +128,10 @@
 			children = (
 				E2D81DE816AEDAB00029D8BA /* UserListController.h */,
 				E2D81DE916AEDAB00029D8BA /* UserListController.m */,
+				E2D81DEE16AEEBD50029D8BA /* TracksViewController.h */,
+				E2D81DEF16AEEBD50029D8BA /* TracksViewController.m */,
+				E250C0A216AEF9BE00022B70 /* TrackingViewController.h */,
+				E250C0A316AEF9BE00022B70 /* TrackingViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +177,8 @@
 				E2D81DD616AEB7290029D8BA /* Storyboards */,
 				E2D81DEB16AEDB4B0029D8BA /* User.h */,
 				E2D81DEC16AEDB4B0029D8BA /* User.m */,
+				E250C0A516AF01C600022B70 /* Track.h */,
+				E250C0A616AF01C600022B70 /* Track.m */,
 			);
 			path = RottenNetz;
 			sourceTree = "<group>";
@@ -273,6 +294,8 @@
 				E2EBAD7716AEB5EF00156BE5 /* Default-568h@2x.png in Resources */,
 				E2D81DD916AEB7D70029D8BA /* RottenBoardIPhone.storyboard in Resources */,
 				E2D81DE016AEC10E0029D8BA /* map.png in Resources */,
+				E250C09F16AEF08600022B70 /* tracks.png in Resources */,
+				E250C0A116AEF5E700022B70 /* footprints.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +334,9 @@
 				E2EBAD7116AEB5EF00156BE5 /* AppDelegate.m in Sources */,
 				E2D81DEA16AEDAB00029D8BA /* UserListController.m in Sources */,
 				E2D81DED16AEDB4B0029D8BA /* User.m in Sources */,
+				E2D81DF016AEEBD50029D8BA /* TracksViewController.m in Sources */,
+				E250C0A416AEF9BE00022B70 /* TrackingViewController.m in Sources */,
+				E250C0A716AF01C600022B70 /* Track.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
