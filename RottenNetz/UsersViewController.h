@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserListController : UITableViewController
+@interface UsersViewController : UITableViewController
 
 @property(nonatomic, strong) NSMutableArray * users;
 @end

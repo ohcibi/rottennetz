@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 ohcibi. All rights reserved.
 //
 
-#import "UserListController.h"
+#import "UsersViewController.h"
 #import "User.h"
 
-@interface UserListController ()
+@interface UsersViewController ()
 
 @end
 
-@implementation UserListController
+@implementation UsersViewController
 @synthesize users;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -27,12 +27,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    User * user1 = [[User alloc] init];
+    user1.name = @"Peter";
+    user1.tracks = [[NSMutableArray alloc] initWithObjects:@"DUMMY", nil];
+    
+    User * user2 = [[User alloc] init];
+    user2.name = @"Heinz";
+    user2.tracks = [[NSMutableArray alloc] initWithObjects:@"DUMMY", @"DUMMY2", nil];
+    
+    users = [[NSMutableArray alloc] initWithObjects: user1, user2, nil];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
