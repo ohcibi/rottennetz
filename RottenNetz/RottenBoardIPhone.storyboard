@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t0f-l1-kXK">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="WtU-Gn-WhS">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="t0f-l1-kXK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W39-dv-4rm">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="r6e-AA-VSg" kind="relationship" relationship="rootViewController" id="6mD-3t-7Az"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wY-GX-SJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-523" y="334"/>
+        </scene>
+        <!--View Controller - Karte-->
+        <scene sceneID="jHM-YF-np7">
+            <objects>
+                <viewController id="r6e-AA-VSg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vXw-e3-Zd1">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yjw-Sr-Hq0"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yjw-Sr-Hq0" firstAttribute="leading" secondItem="vXw-e3-Zd1" secondAttribute="leading" type="default" id="B9N-WN-EuI"/>
+                            <constraint firstItem="Yjw-Sr-Hq0" firstAttribute="bottom" secondItem="vXw-e3-Zd1" secondAttribute="bottom" type="default" id="MfV-0Q-c8C"/>
+                            <constraint firstItem="Yjw-Sr-Hq0" firstAttribute="top" secondItem="vXw-e3-Zd1" secondAttribute="top" type="default" id="nxp-TA-1Bb"/>
+                            <constraint firstItem="Yjw-Sr-Hq0" firstAttribute="trailing" secondItem="vXw-e3-Zd1" secondAttribute="trailing" type="default" id="zD8-Vm-Bau"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Karte" id="JQp-or-9Fd">
+                        <barButtonItem key="leftBarButtonItem" title="Start Tracking" id="GrN-PQ-AlZ">
+                            <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="map.png" id="d1G-gG-u0m">
+                            <connections>
+                                <segue destination="d50-wv-IU6" kind="push" id="3SS-Kr-VJr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dB-DP-xmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="334"/>
+        </scene>
+        <!--View Controller - Tracks-->
+        <scene sceneID="UBM-Yh-g0p">
+            <objects>
+                <viewController id="d50-wv-IU6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UUE-Jv-BiJ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JO4-ax-o9c">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2KN-PR-L7F">
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JO4-ax-o9c" firstAttribute="leading" secondItem="UUE-Jv-BiJ" secondAttribute="leading" type="default" id="06A-nA-Luo"/>
+                            <constraint firstItem="2KN-PR-L7F" firstAttribute="trailing" secondItem="UUE-Jv-BiJ" secondAttribute="trailing" type="default" id="Gn4-mn-NDO"/>
+                            <constraint firstItem="JO4-ax-o9c" firstAttribute="top" secondItem="2KN-PR-L7F" secondAttribute="bottom" type="default" id="JR8-7M-z9c"/>
+                            <constraint firstItem="2KN-PR-L7F" firstAttribute="leading" secondItem="UUE-Jv-BiJ" secondAttribute="leading" type="default" id="QsW-DC-0jb"/>
+                            <constraint firstItem="2KN-PR-L7F" firstAttribute="top" secondItem="UUE-Jv-BiJ" secondAttribute="top" type="default" id="coO-Ht-pQW"/>
+                            <constraint firstItem="JO4-ax-o9c" firstAttribute="bottom" secondItem="UUE-Jv-BiJ" secondAttribute="bottom" type="default" id="eGa-6l-v06"/>
+                            <constraint firstItem="JO4-ax-o9c" firstAttribute="trailing" secondItem="UUE-Jv-BiJ" secondAttribute="trailing" type="default" id="gRB-Zp-E3k"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tracks" id="DKE-cf-8Q3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oXw-W2-zSg">
+                            <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="u2L-sH-ANa" id="GKs-x9-TkA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krq-Cc-9qm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="u2L-sH-ANa">
+                    <connections>
+                        <outlet property="delegate" destination="d50-wv-IU6" id="EIo-wU-Df9"/>
+                        <outlet property="searchBar" destination="2KN-PR-L7F" id="oOx-1R-qsL"/>
+                        <outlet property="searchContentsController" destination="d50-wv-IU6" id="F26-F5-PMb"/>
+                        <outlet property="searchResultsDataSource" destination="d50-wv-IU6" id="6Dz-Y3-J7y"/>
+                        <outlet property="searchResultsDelegate" destination="d50-wv-IU6" id="hsx-6G-8ud"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="336" y="334"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="map.png" width="26" height="21"/>
+    </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
