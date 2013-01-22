@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E2EBAD6116AEB5EF00156BE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6016AEB5EF00156BE5 /* UIKit.framework */; };
+		E2EBAD6316AEB5EF00156BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6216AEB5EF00156BE5 /* Foundation.framework */; };
+		E2EBAD6516AEB5EF00156BE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6416AEB5EF00156BE5 /* CoreGraphics.framework */; };
+		E2EBAD6B16AEB5EF00156BE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2EBAD6916AEB5EF00156BE5 /* InfoPlist.strings */; };
+		E2EBAD6D16AEB5EF00156BE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EBAD6C16AEB5EF00156BE5 /* main.m */; };
+		E2EBAD7116AEB5EF00156BE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EBAD7016AEB5EF00156BE5 /* AppDelegate.m */; };
+		E2EBAD7316AEB5EF00156BE5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E2EBAD7216AEB5EF00156BE5 /* Default.png */; };
+		E2EBAD7516AEB5EF00156BE5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2EBAD7416AEB5EF00156BE5 /* Default@2x.png */; };
+		E2EBAD7716AEB5EF00156BE5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2EBAD7616AEB5EF00156BE5 /* Default-568h@2x.png */; };
+		E2EBAD7F16AEB5EF00156BE5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD7E16AEB5EF00156BE5 /* SenTestingKit.framework */; };
+		E2EBAD8016AEB5EF00156BE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6016AEB5EF00156BE5 /* UIKit.framework */; };
+		E2EBAD8116AEB5EF00156BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6216AEB5EF00156BE5 /* Foundation.framework */; };
+		E2EBAD8916AEB5EF00156BE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2EBAD8716AEB5EF00156BE5 /* InfoPlist.strings */; };
+		E2EBAD8C16AEB5EF00156BE5 /* RottenNetzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EBAD8B16AEB5EF00156BE5 /* RottenNetzTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2EBAD8216AEB5EF00156BE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2EBAD5316AEB5EF00156BE5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2EBAD5B16AEB5EF00156BE5;
+			remoteInfo = RottenNetz;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E2EBAD5C16AEB5EF00156BE5 /* RottenNetz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottenNetz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2EBAD6016AEB5EF00156BE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E2EBAD6216AEB5EF00156BE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E2EBAD6416AEB5EF00156BE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E2EBAD6816AEB5EF00156BE5 /* RottenNetz-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RottenNetz-Info.plist"; sourceTree = "<group>"; };
+		E2EBAD6A16AEB5EF00156BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E2EBAD6C16AEB5EF00156BE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2EBAD6E16AEB5EF00156BE5 /* RottenNetz-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RottenNetz-Prefix.pch"; sourceTree = "<group>"; };
+		E2EBAD6F16AEB5EF00156BE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E2EBAD7016AEB5EF00156BE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2EBAD7216AEB5EF00156BE5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E2EBAD7416AEB5EF00156BE5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E2EBAD7616AEB5EF00156BE5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E2EBAD7D16AEB5EF00156BE5 /* RottenNetzTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RottenNetzTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2EBAD7E16AEB5EF00156BE5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E2EBAD8616AEB5EF00156BE5 /* RottenNetzTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RottenNetzTests-Info.plist"; sourceTree = "<group>"; };
+		E2EBAD8816AEB5EF00156BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E2EBAD8A16AEB5EF00156BE5 /* RottenNetzTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RottenNetzTests.h; sourceTree = "<group>"; };
+		E2EBAD8B16AEB5EF00156BE5 /* RottenNetzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RottenNetzTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2EBAD5916AEB5EF00156BE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2EBAD6116AEB5EF00156BE5 /* UIKit.framework in Frameworks */,
+				E2EBAD6316AEB5EF00156BE5 /* Foundation.framework in Frameworks */,
+				E2EBAD6516AEB5EF00156BE5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2EBAD7916AEB5EF00156BE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2EBAD7F16AEB5EF00156BE5 /* SenTestingKit.framework in Frameworks */,
+				E2EBAD8016AEB5EF00156BE5 /* UIKit.framework in Frameworks */,
+				E2EBAD8116AEB5EF00156BE5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E2EBAD5116AEB5EF00156BE5 = {
+			isa = PBXGroup;
+			children = (
+				E2EBAD6616AEB5EF00156BE5 /* RottenNetz */,
+				E2EBAD8416AEB5EF00156BE5 /* RottenNetzTests */,
+				E2EBAD5F16AEB5EF00156BE5 /* Frameworks */,
+				E2EBAD5D16AEB5EF00156BE5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E2EBAD5D16AEB5EF00156BE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2EBAD5C16AEB5EF00156BE5 /* RottenNetz.app */,
+				E2EBAD7D16AEB5EF00156BE5 /* RottenNetzTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2EBAD5F16AEB5EF00156BE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2EBAD6016AEB5EF00156BE5 /* UIKit.framework */,
+				E2EBAD6216AEB5EF00156BE5 /* Foundation.framework */,
+				E2EBAD6416AEB5EF00156BE5 /* CoreGraphics.framework */,
+				E2EBAD7E16AEB5EF00156BE5 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2EBAD6616AEB5EF00156BE5 /* RottenNetz */ = {
+			isa = PBXGroup;
+			children = (
+				E2EBAD6F16AEB5EF00156BE5 /* AppDelegate.h */,
+				E2EBAD7016AEB5EF00156BE5 /* AppDelegate.m */,
+				E2EBAD6716AEB5EF00156BE5 /* Supporting Files */,
+			);
+			path = RottenNetz;
+			sourceTree = "<group>";
+		};
+		E2EBAD6716AEB5EF00156BE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2EBAD6816AEB5EF00156BE5 /* RottenNetz-Info.plist */,
+				E2EBAD6916AEB5EF00156BE5 /* InfoPlist.strings */,
+				E2EBAD6C16AEB5EF00156BE5 /* main.m */,
+				E2EBAD6E16AEB5EF00156BE5 /* RottenNetz-Prefix.pch */,
+				E2EBAD7216AEB5EF00156BE5 /* Default.png */,
+				E2EBAD7416AEB5EF00156BE5 /* Default@2x.png */,
+				E2EBAD7616AEB5EF00156BE5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2EBAD8416AEB5EF00156BE5 /* RottenNetzTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2EBAD8A16AEB5EF00156BE5 /* RottenNetzTests.h */,
+				E2EBAD8B16AEB5EF00156BE5 /* RottenNetzTests.m */,
+				E2EBAD8516AEB5EF00156BE5 /* Supporting Files */,
+			);
+			path = RottenNetzTests;
+			sourceTree = "<group>";
+		};
+		E2EBAD8516AEB5EF00156BE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2EBAD8616AEB5EF00156BE5 /* RottenNetzTests-Info.plist */,
+				E2EBAD8716AEB5EF00156BE5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2EBAD5B16AEB5EF00156BE5 /* RottenNetz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2EBAD8F16AEB5EF00156BE5 /* Build configuration list for PBXNativeTarget "RottenNetz" */;
+			buildPhases = (
+				E2EBAD5816AEB5EF00156BE5 /* Sources */,
+				E2EBAD5916AEB5EF00156BE5 /* Frameworks */,
+				E2EBAD5A16AEB5EF00156BE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RottenNetz;
+			productName = RottenNetz;
+			productReference = E2EBAD5C16AEB5EF00156BE5 /* RottenNetz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E2EBAD7C16AEB5EF00156BE5 /* RottenNetzTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2EBAD9216AEB5EF00156BE5 /* Build configuration list for PBXNativeTarget "RottenNetzTests" */;
+			buildPhases = (
+				E2EBAD7816AEB5EF00156BE5 /* Sources */,
+				E2EBAD7916AEB5EF00156BE5 /* Frameworks */,
+				E2EBAD7A16AEB5EF00156BE5 /* Resources */,
+				E2EBAD7B16AEB5EF00156BE5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2EBAD8316AEB5EF00156BE5 /* PBXTargetDependency */,
+			);
+			name = RottenNetzTests;
+			productName = RottenNetzTests;
+			productReference = E2EBAD7D16AEB5EF00156BE5 /* RottenNetzTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2EBAD5316AEB5EF00156BE5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = ohcibi;
+			};
+			buildConfigurationList = E2EBAD5616AEB5EF00156BE5 /* Build configuration list for PBXProject "RottenNetz" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E2EBAD5116AEB5EF00156BE5;
+			productRefGroup = E2EBAD5D16AEB5EF00156BE5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2EBAD5B16AEB5EF00156BE5 /* RottenNetz */,
+				E2EBAD7C16AEB5EF00156BE5 /* RottenNetzTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2EBAD5A16AEB5EF00156BE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2EBAD6B16AEB5EF00156BE5 /* InfoPlist.strings in Resources */,
+				E2EBAD7316AEB5EF00156BE5 /* Default.png in Resources */,
+				E2EBAD7516AEB5EF00156BE5 /* Default@2x.png in Resources */,
+				E2EBAD7716AEB5EF00156BE5 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2EBAD7A16AEB5EF00156BE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2EBAD8916AEB5EF00156BE5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E2EBAD7B16AEB5EF00156BE5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2EBAD5816AEB5EF00156BE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2EBAD6D16AEB5EF00156BE5 /* main.m in Sources */,
+				E2EBAD7116AEB5EF00156BE5 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2EBAD7816AEB5EF00156BE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2EBAD8C16AEB5EF00156BE5 /* RottenNetzTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2EBAD8316AEB5EF00156BE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2EBAD5B16AEB5EF00156BE5 /* RottenNetz */;
+			targetProxy = E2EBAD8216AEB5EF00156BE5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E2EBAD6916AEB5EF00156BE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2EBAD6A16AEB5EF00156BE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E2EBAD8716AEB5EF00156BE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2EBAD8816AEB5EF00156BE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E2EBAD8D16AEB5EF00156BE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E2EBAD8E16AEB5EF00156BE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2EBAD9016AEB5EF00156BE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RottenNetz/RottenNetz-Prefix.pch";
+				INFOPLIST_FILE = "RottenNetz/RottenNetz-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E2EBAD9116AEB5EF00156BE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RottenNetz/RottenNetz-Prefix.pch";
+				INFOPLIST_FILE = "RottenNetz/RottenNetz-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E2EBAD9316AEB5EF00156BE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RottenNetz.app/RottenNetz";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RottenNetz/RottenNetz-Prefix.pch";
+				INFOPLIST_FILE = "RottenNetzTests/RottenNetzTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E2EBAD9416AEB5EF00156BE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RottenNetz.app/RottenNetz";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RottenNetz/RottenNetz-Prefix.pch";
+				INFOPLIST_FILE = "RottenNetzTests/RottenNetzTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2EBAD5616AEB5EF00156BE5 /* Build configuration list for PBXProject "RottenNetz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2EBAD8D16AEB5EF00156BE5 /* Debug */,
+				E2EBAD8E16AEB5EF00156BE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2EBAD8F16AEB5EF00156BE5 /* Build configuration list for PBXNativeTarget "RottenNetz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2EBAD9016AEB5EF00156BE5 /* Debug */,
+				E2EBAD9116AEB5EF00156BE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E2EBAD9216AEB5EF00156BE5 /* Build configuration list for PBXNativeTarget "RottenNetzTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2EBAD9316AEB5EF00156BE5 /* Debug */,
+				E2EBAD9416AEB5EF00156BE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2EBAD5316AEB5EF00156BE5 /* Project object */;
+}
