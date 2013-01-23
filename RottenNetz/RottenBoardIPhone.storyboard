@@ -7,7 +7,7 @@
         <!--Login View Controller-->
         <scene sceneID="cZY-LY-Rv8">
             <objects>
-                <tableViewController id="iaJ-dy-bdr" customClass="LoginViewController" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="flipHorizontal" id="iaJ-dy-bdr" customClass="LoginViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1wC-yo-UD8">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -16,7 +16,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem title="Login" id="L22-Gd-Y1C"/>
+                                <navigationItem title="Login" id="L22-Gd-Y1C">
+                                    <barButtonItem key="rightBarButtonItem" title="Daten löschen" id="cOM-y8-Cll">
+                                        <color key="tintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="clearData:" destination="iaJ-dy-bdr" id="Kam-Yd-Wgp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
                             </items>
                         </navigationBar>
                         <sections>
@@ -35,7 +42,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="c9H-2m-JBO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="iaJ-dy-bdr" id="5ah-pr-Zho"/>
                                                     </connections>
@@ -61,9 +68,9 @@
                                                         <constraint firstAttribute="height" constant="30" id="PSe-Q5-tLu"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="iaJ-dy-bdr" id="P0I-jb-o3V"/>
+                                                        <outlet property="delegate" destination="iaJ-dy-bdr" id="W7z-KZ-WJ0"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -84,8 +91,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="qSf-mi-fmx"/>
                     <connections>
+                        <outlet property="emailField" destination="yNA-sr-DTi" id="L3z-hd-3Q9"/>
                         <outlet property="passwordField" destination="jaa-5F-hyz" id="rOW-9q-uFF"/>
-                        <outlet property="usernameField" destination="yNA-sr-DTi" id="o0a-z7-QOb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9HB-57-Q6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,7 +128,7 @@
                                     <constraint firstAttribute="width" constant="128" id="G0t-gl-t1O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Alte Tracks" backgroundImage="tracks.png">
+                                <state key="normal" title="Alle Tracks" backgroundImage="tracks.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -152,19 +159,48 @@
                                     <segue destination="Ebf-NU-sa0" kind="push" identifier="userTrackingSegue" id="vHs-6y-9f9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Angemeldet als:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzz-WB-Iax">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="SnQ-Ey-uUR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XT-39-uzX">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="baa-bL-uFN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iaJ-dy-bdr" kind="modal" identifier="loginSegue" modalTransitionStyle="flipHorizontal" id="DuH-4A-uQe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jzz-WB-Iax" firstAttribute="top" secondItem="JLx-wD-o6g" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Fyy-kC-6KD"/>
+                            <constraint firstItem="jzz-WB-Iax" firstAttribute="leading" secondItem="JLx-wD-o6g" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Gdz-wH-4I2"/>
                             <constraint firstItem="5yM-E5-I8Y" firstAttribute="top" secondItem="e7i-28-a2t" secondAttribute="top" type="default" id="IAn-6c-1YE"/>
+                            <constraint firstItem="7XT-39-uzX" firstAttribute="bottom" secondItem="jzz-WB-Iax" secondAttribute="bottom" type="default" id="dGL-DI-9g0"/>
                             <constraint firstItem="5yM-E5-I8Y" firstAttribute="baseline" secondItem="e7i-28-a2t" secondAttribute="baseline" type="default" id="eMF-3K-sAB"/>
+                            <constraint firstAttribute="trailing" secondItem="7XT-39-uzX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gXa-TJ-WC0"/>
                             <constraint firstItem="e7i-28-a2t" firstAttribute="leading" secondItem="JLx-wD-o6g" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kml-8M-HIC"/>
                             <constraint firstItem="e7i-28-a2t" firstAttribute="top" secondItem="JLx-wD-o6g" secondAttribute="top" constant="99" id="lr4-Ad-AuT"/>
                             <constraint firstAttribute="trailing" secondItem="5yM-E5-I8Y" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oOo-yn-b9Q"/>
+                            <constraint firstItem="7XT-39-uzX" firstAttribute="leading" secondItem="jzz-WB-Iax" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="t6G-0p-ALr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Das Rotten-Netz" id="emu-1J-kad"/>
                     <connections>
-                        <segue destination="iaJ-dy-bdr" kind="modal" identifier="loginSegue" modalTransitionStyle="flipHorizontal" id="izW-df-Iqk"/>
+                        <outlet property="loggedInInfoLabel" destination="jzz-WB-Iax" id="w0m-LK-MeT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd7-9s-nCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -373,34 +409,6 @@
         <image name="map.png" width="26" height="21"/>
         <image name="tracks.png" width="256" height="296"/>
     </resources>
-    <classes>
-        <class className="LoginViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="setupUserSession:"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="prepareUserSession:"/>
-            </relationships>
-        </class>
-        <class className="TrackingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrackingViewController.h"/>
-        </class>
-        <class className="TracksViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TracksViewController.h"/>
-        </class>
-        <class className="UsersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UsersViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -19,7 +19,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -27,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self.emailField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,8 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)setupUserSession:(id)sender {
-    NSString * username = self.usernameField.text;
+- (void)setupUserData {
+    NSString * username = self.emailField.text;
     NSString * password = self.passwordField.text;
     KeilerPoster * loginPoster = [[KeilerPoster alloc] initWithDelegate:self andSuccess:@selector(loginSuccess:) andError:@selector(loginFailure:)];
     
@@ -46,21 +45,40 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
+- (IBAction)clearData:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"auth_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[[UIAlertView alloc] initWithTitle:@"Gelöscht" message:@"Userdaten gelöscht" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)loginSuccess:(NSDictionary *)response {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    NSLog(@"Auth-Token: %@", [response objectForKey:@"auth_token"]);
+    NSString * auth_token = [response objectForKey:@"auth_token"];
+    NSString * email = self.emailField.text;
+    [[NSUserDefaults standardUserDefaults] setObject:auth_token forKey:@"auth_token"];
+    [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     [self.passwordField resignFirstResponder];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
--(void)loginFailure:(NSError *)error {
-    // this is somehow not triggered when the request wasn't succesful
-    NSLog(@"Login Failure");
+-(void)loginFailure:(NSDictionary *)response {
+    NSString * message = [NSString stringWithFormat:@"Login fehlgeschlagen. %@. Bitte überprüfe deine Daten.", [response objectForKey:@"message"], nil];
+    [[[UIAlertView alloc] initWithTitle:@"Fehler"
+                                message:message
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField  == self.usernameField) {
+    if (textField  == self.emailField) {
         [self.passwordField becomeFirstResponder];
     } else {
-        [self setupUserSession:textField];
+        [self setupUserData];
     }
     return NO; // == event.preventDefault();
 }

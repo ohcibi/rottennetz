@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserSessionModel.h"
 
 @interface LoginViewController : UITableViewController <UITextFieldDelegate>
-- (IBAction)setupUserSession:(id)sender;
+- (void)setupUserData;
+- (IBAction)clearData:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @end

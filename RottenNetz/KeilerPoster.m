@@ -62,10 +62,11 @@
     [response appendData:data];
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)myError {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [self.delegate performSelector:self.error withObject:myError];
-#pragma clang diagnostic pop
+    [[[UIAlertView alloc] initWithTitle:@"Fehler"
+                                message:@"Der Server ist nicht erreichbar. Bitte überprüf die Konfiguration in den Einstellungen."
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
 #pragma clang diagnostic push
@@ -74,7 +75,12 @@
     NSDictionary * jsonResponse = [NSJSONSerialization JSONObjectWithData:response
                                                               options:NSJSONReadingMutableContainers
                                                                 error:&jsonError];
-    [self.delegate performSelector:self.success withObject:jsonResponse];
+    int succ = [[jsonResponse objectForKey:@"success"] integerValue];
+    if (succ == 1) {
+        [self.delegate performSelector:self.success withObject:jsonResponse];
+    } else {
+        [self.delegate performSelector:self.error withObject:jsonResponse];
+    }
 #pragma clang diagnostic pop
 }
 
