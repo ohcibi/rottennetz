@@ -73,6 +73,7 @@
 
 - (IBAction)prepareUserSession:(id)sender {
     if (session.user == nil) {
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Für die gewünschte Seite ist eine Anmeldung erforderlich" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         [self performSegueWithIdentifier:@"loginSegue" sender:sender];
     }
 }

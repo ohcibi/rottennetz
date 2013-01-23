@@ -7,26 +7,20 @@
 //
 
 #import "LoginViewController.h"
-#import "KeilerPoster.h"
+#import "KeilerClient.h"
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
+@synthesize client = _client;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.emailField becomeFirstResponder];
+    self.client = [KeilerClient sharedClient];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,19 +32,15 @@
 - (void)setupUserData {
     NSString * username = self.emailField.text;
     NSString * password = self.passwordField.text;
-    KeilerPoster * loginPoster = [[KeilerPoster alloc] initWithDelegate:self andSuccess:@selector(loginSuccess:) andError:@selector(loginFailure:)];
-    
-    [loginPoster startRequestForURL:@"http://192.168.1.2:3000/api/sessions" andDictionary:[NSDictionary dictionaryWithObjectsAndKeys:username, @"email", password, @"password", nil]];
-    
+    NSString * urlRoot = [[NSUserDefaults standardUserDefaults] stringForKey:@"url_root"];
+    NSString * url = [NSString stringWithFormat:@"%@/api/sessions", urlRoot];
+    JSONRequest * jsonRequest = [[JSONRequest alloc] initWithUrl:url
+                                                      dictionary:[NSDictionary dictionaryWithObjectsAndKeys:username, @"email", password, @"password", nil]
+                                                        delegate:self
+                                                         success:@selector(loginSuccess:)
+                                                        andError:@selector(loginFailure:)];
+    [self.client startJSONRequest:jsonRequest];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-}
-
-- (IBAction)clearData:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"email"];
-    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"auth_token"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[[UIAlertView alloc] initWithTitle:@"Gelöscht" message:@"Userdaten gelöscht" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)loginSuccess:(NSDictionary *)response {
@@ -66,7 +56,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)loginFailure:(NSDictionary *)response {
-    NSString * message = [NSString stringWithFormat:@"Login fehlgeschlagen. %@. Bitte überprüfe deine Daten.", [response objectForKey:@"message"], nil];
+    NSString * message = [NSString stringWithFormat:@"Login fehlgeschlagen. %@.", [response objectForKey:@"message"], nil];
     [[[UIAlertView alloc] initWithTitle:@"Fehler"
                                 message:message
                                delegate:nil
@@ -81,5 +71,17 @@
         [self setupUserData];
     }
     return NO; // == event.preventDefault();
+}
+
+- (IBAction)clearData:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"auth_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[[UIAlertView alloc] initWithTitle:@"Gelöscht" message:@"Userdaten gelöscht" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [self dismissDialog:sender];
+}
+
+- (IBAction)dismissDialog:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
