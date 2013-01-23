@@ -304,6 +304,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tracking" id="0ID-3Z-Sez"/>
+                    <connections>
+                        <outlet property="mapView" destination="0Wb-yc-bmH" id="cOp-5I-YoN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akW-ri-xER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

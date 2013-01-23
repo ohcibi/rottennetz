@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "KeilerClient.h"
+#import "Tracker.h"
 
-@interface TrackingViewController : UIViewController
+@interface TrackingViewController : UIViewController {
+    Tracker * _tracker;
+    KeilerClient * _client;
+}
 
+@property(nonatomic, weak) IBOutlet MKMapView * mapView;
+
+@property(nonatomic, strong) Tracker * tracker;
+@property(nonatomic, strong) KeilerClient * client;
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E21FCD7F16B075B7009EF28E /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FCD7E16B075B7009EF28E /* Tracker.m */; };
+		E21FCD8516B08282009EF28E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21FCD8416B08282009EF28E /* CoreLocation.framework */; };
 		E250C09F16AEF08600022B70 /* tracks.png in Resources */ = {isa = PBXBuildFile; fileRef = E250C09E16AEF08600022B70 /* tracks.png */; };
 		E250C0A116AEF5E700022B70 /* footprints.png in Resources */ = {isa = PBXBuildFile; fileRef = E250C0A016AEF5E700022B70 /* footprints.png */; };
 		E250C0A416AEF9BE00022B70 /* TrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0A316AEF9BE00022B70 /* TrackingViewController.m */; };
@@ -51,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E21FCD7D16B075B7009EF28E /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
+		E21FCD7E16B075B7009EF28E /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
+		E21FCD8416B08282009EF28E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E250C09E16AEF08600022B70 /* tracks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tracks.png; sourceTree = "<group>"; };
 		E250C0A016AEF5E700022B70 /* footprints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprints.png; sourceTree = "<group>"; };
 		E250C0A216AEF9BE00022B70 /* TrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingViewController.h; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21FCD8516B08282009EF28E /* CoreLocation.framework in Frameworks */,
 				E2D81DE616AECDD30029D8BA /* MapKit.framework in Frameworks */,
 				E2EBAD6116AEB5EF00156BE5 /* UIKit.framework in Frameworks */,
 				E2EBAD6316AEB5EF00156BE5 /* Foundation.framework in Frameworks */,
@@ -205,6 +211,7 @@
 		E2EBAD5F16AEB5EF00156BE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E21FCD8416B08282009EF28E /* CoreLocation.framework */,
 				E2D81DE516AECDD30029D8BA /* MapKit.framework */,
 				E2EBAD6016AEB5EF00156BE5 /* UIKit.framework */,
 				E2EBAD6216AEB5EF00156BE5 /* Foundation.framework */,
@@ -221,6 +228,8 @@
 				E2EBAD7016AEB5EF00156BE5 /* AppDelegate.m */,
 				E250C0A516AF01C600022B70 /* Track.h */,
 				E250C0A616AF01C600022B70 /* Track.m */,
+				E21FCD7D16B075B7009EF28E /* Tracker.h */,
+				E21FCD7E16B075B7009EF28E /* Tracker.m */,
 				E2D81DEB16AEDB4B0029D8BA /* User.h */,
 				E2D81DEC16AEDB4B0029D8BA /* User.m */,
 				E2D81DE716AEDA760029D8BA /* Controllers */,
@@ -393,6 +402,7 @@
 				E250C0C316AF31CE00022B70 /* KeilerClient.m in Sources */,
 				E250C12816B04C5300022B70 /* JSONRequest.m in Sources */,
 				E250C12B16B04F1B00022B70 /* PostOperation.m in Sources */,
+				E21FCD7F16B075B7009EF28E /* Tracker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
