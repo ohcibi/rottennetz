@@ -42,13 +42,11 @@
     }
 }
 -(void)uploadLocation:(CLLocation *)location {
-    NSString * urlRoot = [[NSUserDefaults standardUserDefaults] stringForKey:@"url_root"];
-    NSString * url = [urlRoot stringByAppendingFormat:@"/api/tracks/%d/coordinates", self.track_id];
-    NSString * auth_token = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth_token"];
+    NSString * url = [NSString stringWithFormat:@"/api/tracks/%d/coordinates", self.track_id];
     NSString * lat = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
     NSString * lng = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
     NSDictionary * coordinates = [NSDictionary dictionaryWithObjectsAndKeys: lat, @"lat", lng, @"lng", nil];
-    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:coordinates, @"coordinates", auth_token, @"auth_token", nil];
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:coordinates, @"coordinates", nil];
     
     JSONRequest * request = [[JSONRequest alloc] initWithUrl:url dictionary:dict delegate:self success:@selector(successUploadLocation:) andError:@selector(failureUploadLocation:)];
     

@@ -131,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E21FCD8616B0A307009EF28E /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				E21FCD7D16B075B7009EF28E /* Tracker.h */,
+				E21FCD7E16B075B7009EF28E /* Tracker.m */,
+			);
+			name = Tracking;
+			sourceTree = "<group>";
+		};
 		E250C0B816AF2C5D00022B70 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,8 +237,6 @@
 				E2EBAD7016AEB5EF00156BE5 /* AppDelegate.m */,
 				E250C0A516AF01C600022B70 /* Track.h */,
 				E250C0A616AF01C600022B70 /* Track.m */,
-				E21FCD7D16B075B7009EF28E /* Tracker.h */,
-				E21FCD7E16B075B7009EF28E /* Tracker.m */,
 				E2D81DEB16AEDB4B0029D8BA /* User.h */,
 				E2D81DEC16AEDB4B0029D8BA /* User.m */,
 				E2D81DE716AEDA760029D8BA /* Controllers */,
@@ -237,6 +244,7 @@
 				E250C0C016AF316A00022B70 /* Network */,
 				E2D81DD616AEB7290029D8BA /* Storyboards */,
 				E2EBAD6716AEB5EF00156BE5 /* Supporting Files */,
+				E21FCD8616B0A307009EF28E /* Tracking */,
 			);
 			path = RottenNetz;
 			sourceTree = "<group>";

@@ -32,9 +32,7 @@
 - (void)setupUserData {
     NSString * username = self.emailField.text;
     NSString * password = self.passwordField.text;
-    NSString * urlRoot = [[NSUserDefaults standardUserDefaults] stringForKey:@"url_root"];
-    NSString * url = [NSString stringWithFormat:@"%@/api/sessions", urlRoot];
-    JSONRequest * jsonRequest = [[JSONRequest alloc] initWithUrl:url
+    JSONRequest * jsonRequest = [[JSONRequest alloc] initWithUrl:@"/api/sessions"
                                                       dictionary:[NSDictionary dictionaryWithObjectsAndKeys:username, @"email", password, @"password", nil]
                                                         delegate:self
                                                          success:@selector(loginSuccess:)

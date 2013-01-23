@@ -16,6 +16,7 @@
     SEL _error;
 }
 
+-(id)initWithUrl:(NSString *)url delegate:(id)delegate success:(SEL)success andError:(SEL)error;
 -(id)initWithUrl:(NSString *)url dictionary:(NSDictionary *)dict delegate:(id)delegate success:(SEL)success andError:(SEL)error;
 
 @property(nonatomic, strong)NSURL * url;

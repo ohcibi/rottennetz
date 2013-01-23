@@ -37,11 +37,10 @@
 }
 
 -(void)initTrack {
-    NSString * urlRoot = [[NSUserDefaults standardUserDefaults] stringForKey:@"url_root"];
-    NSString * url = [NSString stringWithFormat:@"%@/api/tracks", urlRoot];
-    NSString * auth_token = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth_token"];
-    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:auth_token, @"auth_token", nil];
-    JSONRequest * request = [[JSONRequest alloc] initWithUrl:url dictionary:dict delegate:self success:@selector(successCreateTrack:) andError:@selector(failureCreateTrack)];
+    JSONRequest * request = [[JSONRequest alloc] initWithUrl:@"/api/tracks"
+                                                    delegate:self
+                                                     success:@selector(successCreateTrack:)
+                                                    andError:@selector(failureCreateTrack)];
     
     [self.client startJSONRequest:request];
 }
