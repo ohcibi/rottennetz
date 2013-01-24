@@ -11,14 +11,22 @@
 
 @implementation Tracker
 @synthesize track_id = _track_id;
+@synthesize tracking = _tracking;
 @synthesize locationManager = _locationManager;
 @synthesize lastLocation = _lastLocation;
 @synthesize client = _client;
 
--(id)initWithTrackId:(int)track_id {
+static Tracker * _sharedTracker = nil;
+
++(Tracker *)sharedTracker {
+    if (nil == _sharedTracker) {
+        _sharedTracker = [[Tracker alloc] init];
+    }
+    return _sharedTracker;
+}
+-(Tracker *)init {
     self = [super init];
     if (self) {
-        self.track_id = track_id;
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
@@ -30,6 +38,12 @@
 
 -(void)startTracking {
     [self.locationManager startUpdatingLocation];
+    self.tracking = YES;
+}
+-(void)stopTracking {
+    [self.locationManager stopUpdatingLocation];
+    self.tracking = NO;
+    self.lastLocation = nil;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
@@ -52,7 +66,6 @@
     
     [self.client startJSONRequest:request];
 }
-
 -(void)successUploadLocation:(NSDictionary *)response {
     NSLog(@"success response: %@", [response description]);
     

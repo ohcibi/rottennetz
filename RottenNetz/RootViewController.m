@@ -16,6 +16,8 @@
 @implementation RootViewController {
     User * _user;
 }
+@synthesize tracker = _tracker;
+@synthesize session = _session;
 
 -(User *)user {
     NSString * email = [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
@@ -30,35 +32,34 @@
     return _user;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    session = [UserSessionModel sharedSession];
+    self.session = [UserSessionModel sharedSession];
+    self.tracker = [Tracker sharedTracker];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    session.user = [self user];
+    self.session.user = [self user];
     
     NSString * label;
     UIFont * font;
-    if (session.user == nil) {
+    if (self.session.user == nil) {
         label = @"Nicht angemeldet";
         font = [UIFont fontWithName:@"Georgia-Italic" size:17];
     } else {
-        label = [NSString stringWithFormat:@"Angemeldet als: %@", session.user.email];
+        label = [NSString stringWithFormat:@"Angemeldet als: %@", self.session.user.email];
         font = [UIFont fontWithName:@"Georgia" size:17];
     }
     
     self.loggedInInfoLabel.text = label;
     self.loggedInInfoLabel.font = font;
+    
+    if (self.tracker.tracking) {
+        [self.trackingButton setTitle:@"Zum Tracking" forState:UIControlStateNormal];
+    } else {
+        [self.trackingButton setTitle:@"Tracking starten" forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,11 +69,11 @@
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    return [identifier isEqualToString:@"loginSegue"] || session.user != nil;
+    return [identifier isEqualToString:@"loginSegue"] || self.session.user != nil;
 }
 
 - (IBAction)prepareUserSession:(id)sender {
-    if (session.user == nil) {
+    if (self.session.user == nil) {
         [[[UIAlertView alloc] initWithTitle:nil message:@"Für die gewünschte Seite ist eine Anmeldung erforderlich" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         [self performSegueWithIdentifier:@"loginSegue" sender:sender];
     }

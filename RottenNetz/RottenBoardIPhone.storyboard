@@ -206,6 +206,7 @@
                     <navigationItem key="navigationItem" title="Das Rotten-Netz" id="emu-1J-kad"/>
                     <connections>
                         <outlet property="loggedInInfoLabel" destination="jzz-WB-Iax" id="w0m-LK-MeT"/>
+                        <outlet property="trackingButton" destination="e7i-28-a2t" id="aD4-4W-CEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd7-9s-nCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,9 +280,9 @@
         <!--Tracking View Controller - Tracking-->
         <scene sceneID="v4Q-mH-hV8">
             <objects>
-                <viewController id="Ebf-NU-sa0" customClass="TrackingViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Ebf-NU-sa0" customClass="TrackingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jPo-nC-Rya">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Wb-yc-bmH"/>
@@ -302,7 +303,11 @@
                                         </segmentedControl>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rd7-Nd-mGi"/>
-                                    <barButtonItem systemItem="done" id="o4E-FU-ZE9"/>
+                                    <barButtonItem systemItem="done" id="o4E-FU-ZE9">
+                                        <connections>
+                                            <action selector="stopTracking:" destination="Ebf-NU-sa0" id="Df1-KP-H1F"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -318,6 +323,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tracking" id="0ID-3Z-Sez"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="0Wb-yc-bmH" id="cOp-5I-YoN"/>
                     </connections>
@@ -431,40 +437,6 @@
         <image name="map.png" width="26" height="21"/>
         <image name="tracks.png" width="256" height="296"/>
     </resources>
-    <classes>
-        <class className="LoginViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearData:"/>
-                <relationship kind="action" name="dismissDialog:"/>
-                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="prepareUserSession:"/>
-                <relationship kind="outlet" name="loggedInInfoLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TrackingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrackingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeMapType:" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="TracksViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TracksViewController.h"/>
-        </class>
-        <class className="UsersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UsersViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
