@@ -40,7 +40,7 @@
     JSONRequest * request = [[JSONRequest alloc] initWithUrl:@"/api/tracks"
                                                     delegate:self
                                                      success:@selector(successCreateTrack:)
-                                                    andError:@selector(failureCreateTrack)];
+                                                    andError:@selector(failureCreateTrack:)];
     
     [self.client startJSONRequest:request];
 }
@@ -51,6 +51,16 @@
     [self.tracker startTracking];
 }
 -(void)failureCreateTrack:(NSDictionary *)response {
+    NSLog(@"Error: %@", [response description]);
 }
 
+- (IBAction)changeMapType:(UISegmentedControl *)sender {
+    switch(sender.selectedSegmentIndex) {
+        case 1: self.mapView.mapType = MKMapTypeSatellite; break;
+        case 2: self.mapView.mapType = MKMapTypeHybrid; break;
+        case 0:
+        default:
+            self.mapView.mapType = MKMapTypeStandard;
+    }
+}
 @end

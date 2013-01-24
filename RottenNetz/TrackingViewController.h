@@ -15,6 +15,7 @@
     Tracker * _tracker;
     KeilerClient * _client;
 }
+- (IBAction)changeMapType:(UISegmentedControl *)sender;
 
 @property(nonatomic, weak) IBOutlet MKMapView * mapView;
 
