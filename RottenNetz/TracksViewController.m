@@ -8,43 +8,61 @@
 
 #import "TracksViewController.h"
 #import "Track.h"
+#import "JSONRequest.h"
+#import "KeilerClient.h"
 
 @interface TracksViewController ()
 
 @end
 
 @implementation TracksViewController
-@synthesize tracks;
+@synthesize tracks = _tracks;
+@synthesize user = _user;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
-    Track * t1 = [[Track alloc] initWithTitle:@"Erster Track"];
-    Track * t2 = [[Track alloc] initWithTitle:@"Zweiter Track"];
-    self.tracks = [[NSMutableArray alloc] initWithObjects:t1, t2, nil];
-    [self.tableView reloadData];
+    self.tracks = [[NSMutableArray alloc] init];
+    
+    [self setTitleLabel];
+    [self loadTracks];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loadTracks {
+    NSString * url = [NSString stringWithFormat:@"/api/users/%d/tracks", self.user.user_id];
+    JSONRequest * request = [[JSONRequest alloc] initWithUrl:url delegate:self success:@selector(finishLoadTracks:) andError:@selector(failureLoadTracks:)];
+    [[KeilerClient sharedClient] startGETRequest:request];
+}
+-(void)finishLoadTracks:(NSDictionary *)response {
+    [self.tracks removeAllObjects];
+    for (NSDictionary * track in response) {
+        Track * newTrack = [[Track alloc] initWithId:[[track objectForKey:@"id"] integerValue]
+                                        andCreatedAt:[track objectForKey:@"created_at"]];
+        [self.tracks addObject:newTrack];
+    }
+    [self.tableView reloadData];
+}
+-(void)failureLoadTracks:(NSDictionary *)response {
+    
+}
+
+-(void)setTitleLabel {
+    CGRect frame = CGRectMake(0, 0, 400, 44);
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:17.0];
+    label.textColor = [UIColor whiteColor];
+    label.text = self.user.name;
+    self.navigationItem.titleView = label;
+    [self.navigationItem setTitle:self.user.name];
 }
 
 #pragma mark - Table view data source
@@ -61,49 +79,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrackCell"];
     
     Track * track = [self.tracks objectAtIndex:indexPath.row];
-    cell.textLabel.text = track.title;
+    cell.textLabel.text = [NSString stringWithFormat:@"Track %d", indexPath.row + 1];
     cell.detailTextLabel.text = [track shortCreatedAt];
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

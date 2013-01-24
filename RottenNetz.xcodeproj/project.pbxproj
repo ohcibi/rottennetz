@@ -148,6 +148,17 @@
 			name = Tracking;
 			sourceTree = "<group>";
 		};
+		E21FCD9B16B1C61E009EF28E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E250C0A516AF01C600022B70 /* Track.h */,
+				E250C0A616AF01C600022B70 /* Track.m */,
+				E2D81DEB16AEDB4B0029D8BA /* User.h */,
+				E2D81DEC16AEDB4B0029D8BA /* User.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		E250C0C016AF316A00022B70 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,13 +250,10 @@
 			children = (
 				E2EBAD6F16AEB5EF00156BE5 /* AppDelegate.h */,
 				E2EBAD7016AEB5EF00156BE5 /* AppDelegate.m */,
-				E250C0A516AF01C600022B70 /* Track.h */,
-				E250C0A616AF01C600022B70 /* Track.m */,
-				E2D81DEB16AEDB4B0029D8BA /* User.h */,
-				E2D81DEC16AEDB4B0029D8BA /* User.m */,
 				E250C0B916AF2CE400022B70 /* UserSession.h */,
 				E250C0BA16AF2CE400022B70 /* UserSession.m */,
 				E2D81DE716AEDA760029D8BA /* Controllers */,
+				E21FCD9B16B1C61E009EF28E /* Models */,
 				E250C0C016AF316A00022B70 /* Network */,
 				E2D81DD616AEB7290029D8BA /* Storyboards */,
 				E2EBAD6716AEB5EF00156BE5 /* Supporting Files */,

@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Track : NSObject
+@interface Track : NSObject {
+    int _track_id;
+    NSDate * _created_at;
+    NSMutableArray * _coordinates;
+}
 
--(id)initWithTitle:(NSString *)myTitle;
+-(id)initWithId:(int)track_id andCreatedAt:(NSString *)created_at;
 -(NSString *)shortCreatedAt;
 
-@property(nonatomic, strong) NSString * title;
+@property(nonatomic) int track_id;
 @property(nonatomic, strong) NSDate * created_at;
 @property(nonatomic, strong) NSMutableArray * coordinates;
 @end

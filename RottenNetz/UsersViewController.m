@@ -10,6 +10,7 @@
 #import "User.h"
 #import "JSONRequest.h"
 #import "KeilerClient.h"
+#import "TracksViewController.h"
 
 @interface UsersViewController ()
 
@@ -66,18 +67,12 @@
     return cell;
 }
 
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Did select Row %d", indexPath.row);
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"usersToTracksSegue"]) {
+        User * user = [self.users objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        TracksViewController * tvc = [segue destinationViewController];
+        tvc.user = user;
+    }
 }
 
 @end

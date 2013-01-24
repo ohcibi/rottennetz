@@ -405,7 +405,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="ekp-I7-Cm5" kind="push" id="nYE-22-R8l"/>
+                                    <segue destination="ekp-I7-Cm5" kind="push" identifier="usersToTracksSegue" id="nYE-22-R8l"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -417,6 +417,7 @@
                     <navigationItem key="navigationItem" title="Benutzerliste" id="ktB-sj-ffp"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="7DU-SD-jKC" id="68D-ao-Fmu"/>
+                        <outlet property="usersTable" destination="4oh-4X-KY2" id="lfJ-Go-l4U"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVJ-fn-Ena" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -438,42 +439,6 @@
         <image name="tracks.png" width="256" height="296"/>
         <image name="users.png" width="32" height="21"/>
     </resources>
-    <classes>
-        <class className="LoginViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearData:"/>
-                <relationship kind="action" name="dismissDialog:"/>
-                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="prepareUserSession:"/>
-                <relationship kind="outlet" name="loggedInInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="trackingButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="TrackingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrackingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeMapType:" candidateClass="UISegmentedControl"/>
-                <relationship kind="action" name="stopTracking:"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="TracksViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TracksViewController.h"/>
-        </class>
-        <class className="UsersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UsersViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

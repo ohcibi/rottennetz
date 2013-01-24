@@ -9,18 +9,25 @@
 #import "Track.h"
 
 @implementation Track
-@synthesize title;
-@synthesize created_at;
-@synthesize coordinates;
+@synthesize track_id = _track_id;
+@synthesize created_at = _created_at;
+@synthesize coordinates = _coordinates;
 
--(id)initWithTitle:(NSString *)myTitle {
+-(id)initWithId:(int)track_id andCreatedAt:(NSString *)created_at {
     self = [super init];
     if (self) {
-        self.title = myTitle;
-        self.created_at = [NSDate date];
+        self.track_id = track_id;
+        self.created_at = [self createdAtFromString:created_at];
     }
     return self;
 }
+
+-(NSDate *)createdAtFromString:(NSString *)dateString {
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+    return [formatter dateFromString:dateString];
+}
+
 -(NSString *)shortCreatedAt {
     NSDateFormatter * f = [[NSDateFormatter alloc] init];
     [f setDateFormat:@"dd. MMMM yyyy HH:mm:ss"];

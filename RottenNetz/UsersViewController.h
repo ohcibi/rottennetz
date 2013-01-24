@@ -11,4 +11,5 @@
 @interface UsersViewController : UITableViewController
 
 @property(nonatomic, strong) NSMutableArray * users;
+@property (strong, nonatomic) IBOutlet UITableView *usersTable;
 @end

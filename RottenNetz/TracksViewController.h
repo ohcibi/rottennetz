@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface TracksViewController : UITableViewController
+@interface TracksViewController : UITableViewController {
+    User * _user;
+    NSMutableArray * _tracks;
+}
 
 @property(nonatomic, strong) NSMutableArray * tracks;
+@property(nonatomic, strong) User * user;
 
 @end
