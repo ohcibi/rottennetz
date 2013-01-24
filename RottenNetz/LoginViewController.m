@@ -38,7 +38,7 @@
                                                         delegate:self
                                                          success:@selector(loginSuccess:)
                                                         andError:@selector(loginFailure:)];
-    [self.client startJSONRequest:jsonRequest];
+    [self.client startPOSTRequest:jsonRequest];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
@@ -48,7 +48,7 @@
     NSDictionary * user = [self userFromJSON:userAsJSON];
     NSString * name = [user objectForKey:@"name"];
     NSString * email = [user objectForKey:@"email"];
-    NSString * auth_token = [user objectForKey:@"auth_token"];
+    NSString * auth_token = [user objectForKey:@"authentication_token"];
     
     [[NSUserDefaults standardUserDefaults] setObject:name forKey:@"name"];
     [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];

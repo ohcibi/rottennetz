@@ -13,5 +13,6 @@
 
 +(KeilerClient *)sharedClient;
 
--(void)startJSONRequest:(JSONRequest *)request;
+-(void)startPOSTRequest:(JSONRequest *)request;
+-(void)startGETRequest:(JSONRequest *)request;
 @end

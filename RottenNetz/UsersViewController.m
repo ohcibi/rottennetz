@@ -9,6 +9,7 @@
 #import "UsersViewController.h"
 #import "User.h"
 #import "JSONRequest.h"
+#import "KeilerClient.h"
 
 @interface UsersViewController ()
 
@@ -19,13 +20,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.users = [[NSMutableArray alloc] init];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadUsers];
 }
 -(void)reloadUsers {
-    //JSONRequest * request = [JSONRequest alloc] init
+    JSONRequest * request = [[JSONRequest alloc] initWithUrl:@"/api/users" delegate:self success:@selector(reloadedUsers:) andError:@selector(failReloadUsers:)];
+    
+    [[KeilerClient sharedClient] startGETRequest:request];
+}
+-(void)reloadedUsers:(NSDictionary *)response {
+    [self.users removeAllObjects];
+    for (NSDictionary * user in response) {
+        User * newUser = [[User alloc] initWithName:[user objectForKey:@"name"]
+                                   userId:[[user objectForKey:@"id"] integerValue]
+                           andTracksCount:[[user objectForKey:@"tracks_count"] integerValue]];
+        [self.users addObject:newUser];
+    }
+    [self.tableView reloadData];
+}
+-(void)failReloadUsers:(NSDictionary *)response {
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +70,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Did select Row %d", indexPath.row);
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

@@ -8,6 +8,7 @@
 
 #import "KeilerClient.h"
 #import "PostOperation.h"
+#import "GetOperation.h"
 
 @implementation KeilerClient
 
@@ -21,8 +22,12 @@ static KeilerClient * _sharedClient = nil;
     return _sharedClient;
 }
 
--(void)startJSONRequest:(JSONRequest *)request {
+-(void)startPOSTRequest:(JSONRequest *)request {
     PostOperation * operation = [[PostOperation alloc] initWithJSONRequest:request];
+    [operation start];
+}
+-(void)startGETRequest:(JSONRequest *)request {
+    GetOperation * operation = [[GetOperation alloc] initWithJSONRequest:request];
     [operation start];
 }
 

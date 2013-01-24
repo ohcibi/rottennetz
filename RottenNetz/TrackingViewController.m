@@ -40,7 +40,7 @@
                                                     delegate:self
                                                      success:@selector(successCreateTrack:)
                                                     andError:@selector(failureCreateTrack:)];
-    [self.client startJSONRequest:request];
+    [self.client startPOSTRequest:request];
 }
 
 -(void)successCreateTrack:(NSDictionary *)response {

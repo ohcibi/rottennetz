@@ -7,16 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONRequest.h"
+#import "KeilerHTTPOperation.h"
 
-@interface PostOperation : NSOperation <NSURLConnectionDataDelegate> {
-    int _statusCode;
-    NSURLConnection * _connection;
-    NSMutableData * _response;
-    JSONRequest * _request;
-}
-
--(id)initWithJSONRequest:(JSONRequest *)request;
-
-@property(nonatomic, strong)JSONRequest * request;
+@interface PostOperation : KeilerHTTPOperation
 @end

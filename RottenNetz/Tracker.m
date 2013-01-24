@@ -64,7 +64,7 @@ static Tracker * _sharedTracker = nil;
     
     JSONRequest * request = [[JSONRequest alloc] initWithUrl:url dictionary:dict delegate:self success:@selector(successUploadLocation:) andError:@selector(failureUploadLocation:)];
     
-    [self.client startJSONRequest:request];
+    [self.client startPOSTRequest:request];
 }
 -(void)successUploadLocation:(NSDictionary *)response {
     NSLog(@"success response: %@", [response description]);

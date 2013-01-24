@@ -356,11 +356,11 @@
             </objects>
             <point key="canvasLocation" x="1490" y="880"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - User-->
         <scene sceneID="gel-yi-ziz">
             <objects>
                 <navigationController id="OIz-LR-eYz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="S4o-EM-ICc"/>
+                    <tabBarItem key="tabBarItem" title="User" image="users.png" id="S4o-EM-ICc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DN5-Bh-OfV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -375,7 +375,7 @@
             </objects>
             <point key="canvasLocation" x="-15" y="880"/>
         </scene>
-        <!--Users View Controller - User-->
+        <!--Users View Controller - Benutzerliste-->
         <scene sceneID="NbI-Vs-Hdz">
             <objects>
                 <tableViewController id="6pY-OW-4fn" customClass="UsersViewController" sceneMemberID="viewController">
@@ -414,7 +414,7 @@
                             <outlet property="delegate" destination="6pY-OW-4fn" id="kCx-ty-PtO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User" id="ktB-sj-ffp"/>
+                    <navigationItem key="navigationItem" title="Benutzerliste" id="ktB-sj-ffp"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="7DU-SD-jKC" id="68D-ao-Fmu"/>
                     </connections>
@@ -436,6 +436,7 @@
         <image name="footprints.png" width="256" height="296"/>
         <image name="map.png" width="26" height="21"/>
         <image name="tracks.png" width="256" height="296"/>
+        <image name="users.png" width="32" height="21"/>
     </resources>
     <classes>
         <class className="LoginViewController" superclassName="UITableViewController">
