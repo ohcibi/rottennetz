@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
     [self.emailField becomeFirstResponder];
+    self.emailField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
     self.client = [KeilerClient sharedClient];
 }
 
@@ -43,10 +44,15 @@
 
 -(void)loginSuccess:(NSDictionary *)response {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    NSString * auth_token = [response objectForKey:@"auth_token"];
-    NSString * email = self.emailField.text;
-    [[NSUserDefaults standardUserDefaults] setObject:auth_token forKey:@"auth_token"];
+    NSString * userAsJSON = [response objectForKey:@"user"];
+    NSDictionary * user = [self userFromJSON:userAsJSON];
+    NSString * name = [user objectForKey:@"name"];
+    NSString * email = [user objectForKey:@"email"];
+    NSString * auth_token = [user objectForKey:@"auth_token"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:name forKey:@"name"];
     [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] setObject:auth_token forKey:@"auth_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     [self.passwordField resignFirstResponder];
@@ -60,6 +66,11 @@
                                delegate:nil
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
+}
+
+-(NSDictionary *)userFromJSON:(NSString *)userAsJSON {
+    NSError * error;
+    return [NSJSONSerialization JSONObjectWithData:[userAsJSON dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {

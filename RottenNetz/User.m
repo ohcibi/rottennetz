@@ -11,14 +11,13 @@
 @implementation User
 @synthesize name = _name;
 @synthesize email = _email;
-@synthesize auth_token = _auth_token;
-@synthesize tracks = _tracks;
+@synthesize tracks_count = _tracks_count;
 
--(id)initWithEmail:(NSString *)email andAuthToken:(NSString *)auth_token {
+-(id)initWithEmail:(NSString *)email andName:(NSString *)name {
     self = [super init];
     if (self) {
         self.email = email;
-        self.auth_token = auth_token;
+        self.name = name;
     }
     return self;
 }

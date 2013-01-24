@@ -8,6 +8,7 @@
 
 #import "UsersViewController.h"
 #import "User.h"
+#import "JSONRequest.h"
 
 @interface UsersViewController ()
 
@@ -16,35 +17,20 @@
 @implementation UsersViewController
 @synthesize users;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    User * user1 = [[User alloc] init];
-    user1.name = @"Peter";
-    user1.tracks = [[NSMutableArray alloc] initWithObjects:@"DUMMY", nil];
-    
-    User * user2 = [[User alloc] init];
-    user2.name = @"Heinz";
-    user2.tracks = [[NSMutableArray alloc] initWithObjects:@"DUMMY", @"DUMMY2", nil];
-    
-    users = [[NSMutableArray alloc] initWithObjects: user1, user2, nil];
-    [self.tableView reloadData];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reloadUsers];
+}
+-(void)reloadUsers {
+    //JSONRequest * request = [JSONRequest alloc] init
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -60,15 +46,14 @@
     
     User * user = [self.users objectAtIndex:indexPath.row];
     cell.textLabel.text = user.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d Tracks", [user.tracks count]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d Tracks", user.tracks_count];
     return cell;
 }
 
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

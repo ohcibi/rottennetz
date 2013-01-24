@@ -11,14 +11,12 @@
 @interface User : NSObject {
     NSString * _name;
     NSString * _email;
-    NSString * _auth_token;
-    NSMutableArray * _tracks;
+    int _tracks_count;
 }
 
--(id)initWithEmail:(NSString *)email andAuthToken:(NSString *)auth_token;
+-(id)initWithEmail:(NSString *)email andName:(NSString *)name;
 
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *email;
-@property(nonatomic, strong) NSString *auth_token;
-@property(nonatomic, strong) NSMutableArray *tracks;
+@property(nonatomic) int tracks_count;
 @end

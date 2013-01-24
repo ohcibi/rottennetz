@@ -18,38 +18,22 @@
 }
 @synthesize tracker = _tracker;
 @synthesize session = _session;
-
--(User *)user {
-    NSString * email = [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
-    NSString * auth_token = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth_token"];
-    if ([email isEqualToString:@""] || [auth_token isEqualToString:@""]) return nil;
-    
-    if (nil == _user
-        || ![_user.email isEqualToString:email]
-        || ![_user.auth_token isEqualToString:auth_token]) {
-        _user = [[User alloc] initWithEmail:email andAuthToken:auth_token];
-    }
-    return _user;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.session = [UserSessionModel sharedSession];
+    self.session = [UserSession sharedSession];
     self.tracker = [Tracker sharedTracker];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.session.user = [self user];
-    
     NSString * label;
     UIFont * font;
     if (self.session.user == nil) {
         label = @"Nicht angemeldet";
-        font = [UIFont fontWithName:@"Georgia-Italic" size:17];
+        font = [UIFont fontWithName:@"Georgia-Italic" size:14];
     } else {
-        label = [NSString stringWithFormat:@"Angemeldet als: %@", self.session.user.email];
-        font = [UIFont fontWithName:@"Georgia" size:17];
+        label = [NSString stringWithFormat:@"Angemeldet als: %@", self.session.user.name];
+        font = [UIFont fontWithName:@"Georgia" size:14];
     }
     
     self.loggedInInfoLabel.text = label;

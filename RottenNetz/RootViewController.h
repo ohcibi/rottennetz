@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
-#import "UserSessionModel.h"
+#import "UserSession.h"
 #import "Tracker.h"
 
 @interface RootViewController : UIViewController {
-    UserSessionModel * _session;
+    UserSession * _session;
     Tracker * _tracker;
 }
 
@@ -21,5 +21,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *loggedInInfoLabel;
 @property (weak, nonatomic) IBOutlet UIButton *trackingButton;
 @property(nonatomic, strong) Tracker * tracker;
-@property(nonatomic, strong) UserSessionModel * session;
+@property(nonatomic, strong) UserSession * session;
 @end

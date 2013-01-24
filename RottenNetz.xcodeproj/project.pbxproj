@@ -15,7 +15,7 @@
 		E250C0A716AF01C600022B70 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0A616AF01C600022B70 /* Track.m */; };
 		E250C0B216AF155900022B70 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0B116AF155900022B70 /* LoginViewController.m */; };
 		E250C0B616AF158400022B70 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0B516AF158400022B70 /* RootViewController.m */; };
-		E250C0BB16AF2CE400022B70 /* UserSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0BA16AF2CE400022B70 /* UserSessionModel.m */; };
+		E250C0BB16AF2CE400022B70 /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0BA16AF2CE400022B70 /* UserSession.m */; };
 		E250C0C316AF31CE00022B70 /* KeilerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0C216AF31CE00022B70 /* KeilerClient.m */; };
 		E250C11916B03B9000022B70 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E250C11816B03B9000022B70 /* Settings.bundle */; };
 		E250C12816B04C5300022B70 /* JSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C12716B04C5300022B70 /* JSONRequest.m */; };
@@ -67,8 +67,8 @@
 		E250C0B416AF158300022B70 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		E250C0B516AF158400022B70 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		E250C0B716AF160000022B70 /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
-		E250C0B916AF2CE400022B70 /* UserSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSessionModel.h; sourceTree = "<group>"; };
-		E250C0BA16AF2CE400022B70 /* UserSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSessionModel.m; sourceTree = "<group>"; };
+		E250C0B916AF2CE400022B70 /* UserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSession.h; sourceTree = "<group>"; };
+		E250C0BA16AF2CE400022B70 /* UserSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSession.m; sourceTree = "<group>"; };
 		E250C0C216AF31CE00022B70 /* KeilerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeilerClient.m; sourceTree = "<group>"; };
 		E250C11816B03B9000022B70 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E250C11B16B047F900022B70 /* KeilerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeilerClient.h; sourceTree = "<group>"; };
@@ -138,15 +138,6 @@
 				E21FCD7E16B075B7009EF28E /* Tracker.m */,
 			);
 			name = Tracking;
-			sourceTree = "<group>";
-		};
-		E250C0B816AF2C5D00022B70 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E250C0B916AF2CE400022B70 /* UserSessionModel.h */,
-				E250C0BA16AF2CE400022B70 /* UserSessionModel.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		E250C0C016AF316A00022B70 /* Network */ = {
@@ -239,8 +230,9 @@
 				E250C0A616AF01C600022B70 /* Track.m */,
 				E2D81DEB16AEDB4B0029D8BA /* User.h */,
 				E2D81DEC16AEDB4B0029D8BA /* User.m */,
+				E250C0B916AF2CE400022B70 /* UserSession.h */,
+				E250C0BA16AF2CE400022B70 /* UserSession.m */,
 				E2D81DE716AEDA760029D8BA /* Controllers */,
-				E250C0B816AF2C5D00022B70 /* Models */,
 				E250C0C016AF316A00022B70 /* Network */,
 				E2D81DD616AEB7290029D8BA /* Storyboards */,
 				E2EBAD6716AEB5EF00156BE5 /* Supporting Files */,
@@ -406,7 +398,7 @@
 				E250C0A716AF01C600022B70 /* Track.m in Sources */,
 				E250C0B216AF155900022B70 /* LoginViewController.m in Sources */,
 				E250C0B616AF158400022B70 /* RootViewController.m in Sources */,
-				E250C0BB16AF2CE400022B70 /* UserSessionModel.m in Sources */,
+				E250C0BB16AF2CE400022B70 /* UserSession.m in Sources */,
 				E250C0C316AF31CE00022B70 /* KeilerClient.m in Sources */,
 				E250C12816B04C5300022B70 /* JSONRequest.m in Sources */,
 				E250C12B16B04F1B00022B70 /* PostOperation.m in Sources */,

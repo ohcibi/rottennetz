@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 
-@interface UserSessionModel : NSObject {
+@interface UserSession : NSObject {
     User * _user;
+    NSString * _auth_token;
 }
-+(UserSessionModel *)sharedSession;
++(UserSession *)sharedSession;
 
 @property(nonatomic, strong) User * user;
+@property(nonatomic, strong) NSString * auth_token;
 @end

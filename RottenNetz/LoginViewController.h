@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UserSessionModel.h"
+#import "UserSession.h"
 #import "KeilerClient.h"
 
 @interface LoginViewController : UITableViewController <UITextFieldDelegate> {
