@@ -11,7 +11,6 @@
 @implementation Track
 @synthesize track_id = _track_id;
 @synthesize created_at = _created_at;
-@synthesize coordinates = _coordinates;
 
 -(id)initWithId:(int)track_id andCreatedAt:(NSString *)created_at {
     self = [super init];

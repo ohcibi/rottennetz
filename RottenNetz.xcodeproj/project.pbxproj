@@ -12,6 +12,7 @@
 		E21FCD9416B1AEF2009EF28E /* KeilerHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FCD9316B1AEF2009EF28E /* KeilerHTTPOperation.m */; };
 		E21FCD9716B1B11B009EF28E /* GetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FCD9616B1B11B009EF28E /* GetOperation.m */; };
 		E21FCD9916B1B927009EF28E /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = E21FCD9816B1B927009EF28E /* users.png */; };
+		E21FCD9E16B1DE37009EF28E /* TrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FCD9D16B1DE37009EF28E /* TrackViewController.m */; };
 		E250C09F16AEF08600022B70 /* tracks.png in Resources */ = {isa = PBXBuildFile; fileRef = E250C09E16AEF08600022B70 /* tracks.png */; };
 		E250C0A116AEF5E700022B70 /* footprints.png in Resources */ = {isa = PBXBuildFile; fileRef = E250C0A016AEF5E700022B70 /* footprints.png */; };
 		E250C0A416AEF9BE00022B70 /* TrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0A316AEF9BE00022B70 /* TrackingViewController.m */; };
@@ -64,6 +65,8 @@
 		E21FCD9516B1B11B009EF28E /* GetOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOperation.h; sourceTree = "<group>"; };
 		E21FCD9616B1B11B009EF28E /* GetOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOperation.m; sourceTree = "<group>"; };
 		E21FCD9816B1B927009EF28E /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
+		E21FCD9C16B1DE37009EF28E /* TrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackViewController.h; sourceTree = "<group>"; };
+		E21FCD9D16B1DE37009EF28E /* TrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackViewController.m; sourceTree = "<group>"; };
 		E250C09E16AEF08600022B70 /* tracks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tracks.png; sourceTree = "<group>"; };
 		E250C0A016AEF5E700022B70 /* footprints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprints.png; sourceTree = "<group>"; };
 		E250C0A216AEF9BE00022B70 /* TrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingViewController.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				E250C0B116AF155900022B70 /* LoginViewController.m */,
 				E250C0B416AF158300022B70 /* RootViewController.h */,
 				E250C0B516AF158400022B70 /* RootViewController.m */,
+				E21FCD9C16B1DE37009EF28E /* TrackViewController.h */,
+				E21FCD9D16B1DE37009EF28E /* TrackViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				E21FCD7F16B075B7009EF28E /* Tracker.m in Sources */,
 				E21FCD9416B1AEF2009EF28E /* KeilerHTTPOperation.m in Sources */,
 				E21FCD9716B1B11B009EF28E /* GetOperation.m in Sources */,
+				E21FCD9E16B1DE37009EF28E /* TrackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

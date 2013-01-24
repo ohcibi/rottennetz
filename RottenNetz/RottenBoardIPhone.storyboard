@@ -262,7 +262,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="yhL-Uf-WkV" kind="push" id="Fo3-dD-3MX"/>
+                                    <segue destination="yhL-Uf-WkV" kind="push" identifier="tracksToTrackSegue" id="Fo3-dD-3MX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -332,10 +332,10 @@
             </objects>
             <point key="canvasLocation" x="1490" y="-54"/>
         </scene>
-        <!--View Controller-->
+        <!--Track View Controller-->
         <scene sceneID="kCh-Jh-CYZ">
             <objects>
-                <viewController id="yhL-Uf-WkV" sceneMemberID="viewController">
+                <viewController id="yhL-Uf-WkV" customClass="TrackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hJA-Cs-t4D">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -351,6 +351,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fHR-pB-sHe"/>
+                    <connections>
+                        <outlet property="mapView" destination="t1h-ib-Btn" id="qGR-0I-zaS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C48-7N-KjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
