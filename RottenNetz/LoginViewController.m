@@ -44,10 +44,12 @@
 -(void)loginSuccess:(NSDictionary *)response {
     NSString * userAsJSON = [response objectForKey:@"user"];
     NSDictionary * user = [self userFromJSON:userAsJSON];
+    NSNumber * user_id = [user objectForKey:@"id"];
     NSString * name = [user objectForKey:@"name"];
     NSString * email = [user objectForKey:@"email"];
     NSString * auth_token = [user objectForKey:@"authentication_token"];
     
+    [[NSUserDefaults standardUserDefaults] setObject:user_id forKey:@"user_id"];
     [[NSUserDefaults standardUserDefaults] setObject:name forKey:@"name"];
     [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
     [[NSUserDefaults standardUserDefaults] setObject:auth_token forKey:@"auth_token"];

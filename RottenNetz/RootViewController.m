@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "LoginViewController.h"
+#import "TracksViewController.h"
 
 @interface RootViewController ()
 
@@ -54,6 +55,12 @@
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     return [identifier isEqualToString:@"loginSegue"] || self.session.user != nil;
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"rootToTracksSegue"]) {
+        TracksViewController * tvc = [segue destinationViewController];
+        tvc.user = self.session.user;
+    }
 }
 
 - (IBAction)prepareUserSession:(id)sender {

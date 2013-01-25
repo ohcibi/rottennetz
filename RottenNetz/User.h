@@ -16,7 +16,7 @@
 }
 
 -(id)initWithName:(NSString *)name userId:(int)user_id andTracksCount:(int)tracks_count;
--(id)initWithEmail:(NSString *)email andName:(NSString *)name;
+-(id)initWithId:(int)user_id email:(NSString *)email andName:(NSString *)name;
 
 @property(nonatomic) int user_id;
 @property(nonatomic, strong) NSString *name;

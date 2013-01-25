@@ -23,9 +23,10 @@
     }
     return self;
 }
--(id)initWithEmail:(NSString *)email andName:(NSString *)name {
+-(id)initWithId:(int)user_id email:(NSString *)email andName:(NSString *)name {
     self = [super init];
     if (self) {
+        self.user_id = user_id;
         self.email = email;
         self.name = name;
     }

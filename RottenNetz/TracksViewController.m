@@ -29,10 +29,16 @@
     [self loadTracks];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Zum aktualisieren weiterziehen!"];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshTracks:)
+                  forControlEvents:UIControlEventValueChanged];
 }
 
-- (IBAction)refreshTracks:(id)sender {
+
+- (void)refreshTracks:(UIRefreshControl *)refresh {
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Lade Tracks..."];
     [self loadTracks];
 }
 
@@ -54,6 +60,14 @@
         [self.tracks addObject:newTrack];
     }
     [self.tableView reloadData];
+    [self endRefreshing];
+}
+-(void)endRefreshing {
+    NSDateFormatter * f = [[NSDateFormatter alloc] init];
+    [f setDateFormat:@"dd. MMM HH:mm:ss"];
+    NSString * title = [NSString stringWithFormat:@"Zuletzt aktualisiert: %@", [f stringFromDate:[NSDate date]]];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:title];
+    [self.refreshControl endRefreshing];
 }
 -(void)failureLoadTracks:(NSDictionary *)response {
     
