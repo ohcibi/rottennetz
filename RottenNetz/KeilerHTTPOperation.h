@@ -10,6 +10,8 @@
 #import "JSONRequest.h"
 
 @interface KeilerHTTPOperation : NSOperation <NSURLConnectionDataDelegate> {
+    BOOL _isExecuting;
+    BOOL _isFinished;
     int _statusCode;
     NSURLConnection * _connection;
     NSMutableURLRequest * _request;
@@ -19,6 +21,8 @@
 
 -(id)initWithJSONRequest:(JSONRequest *)request;
 
+@property(nonatomic) BOOL isExecuting;
+@property(nonatomic) BOOL isFinished;
 @property(nonatomic, strong)NSMutableURLRequest * request;
 @property(nonatomic, strong)JSONRequest * jsonRequest;
 

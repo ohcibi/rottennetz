@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "JSONRequest.h"
 
-@interface KeilerClient : NSObject
+@interface KeilerClient : NSObject {
+    NSOperationQueue * _queue;
+}
 
 +(KeilerClient *)sharedClient;
 
 -(void)startPOSTRequest:(JSONRequest *)request;
 -(void)startGETRequest:(JSONRequest *)request;
+
+@property(nonatomic, strong) NSOperationQueue * queue;
 @end

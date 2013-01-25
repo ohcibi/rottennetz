@@ -11,6 +11,7 @@
 #import "GetOperation.h"
 
 @implementation KeilerClient
+@synthesize queue = _queue;
 
 static KeilerClient * _sharedClient = nil;
 
@@ -21,14 +22,22 @@ static KeilerClient * _sharedClient = nil;
     
     return _sharedClient;
 }
+-(KeilerClient *)init {
+    self = [super init];
+    if (self) {
+        self.queue = [[NSOperationQueue alloc] init];
+        self.queue.maxConcurrentOperationCount = 1;
+    }
+    return self;
+}
 
 -(void)startPOSTRequest:(JSONRequest *)request {
     PostOperation * operation = [[PostOperation alloc] initWithJSONRequest:request];
-    [operation start];
+    [self.queue addOperation:operation];
 }
 -(void)startGETRequest:(JSONRequest *)request {
     GetOperation * operation = [[GetOperation alloc] initWithJSONRequest:request];
-    [operation start];
+    [self.queue addOperation:operation];
 }
 
 @end
