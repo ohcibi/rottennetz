@@ -384,7 +384,7 @@
             </objects>
             <point key="canvasLocation" x="-15" y="880"/>
         </scene>
-        <!--Users View Controller - Benutzerliste-->
+        <!--Users View Controller - User-->
         <scene sceneID="NbI-Vs-Hdz">
             <objects>
                 <tableViewController id="6pY-OW-4fn" customClass="UsersViewController" sceneMemberID="viewController">
@@ -423,7 +423,7 @@
                             <outlet property="delegate" destination="6pY-OW-4fn" id="kCx-ty-PtO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Benutzerliste" id="ktB-sj-ffp">
+                    <navigationItem key="navigationItem" title="User" id="ktB-sj-ffp">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="SLo-kc-VXA">
                             <connections>
                                 <action selector="refreshUsers:" destination="6pY-OW-4fn" id="n60-rF-BMp"/>
@@ -454,6 +454,55 @@
         <image name="tracks.png" width="256" height="296"/>
         <image name="users.png" width="32" height="21"/>
     </resources>
+    <classes>
+        <class className="LoginViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearData:"/>
+                <relationship kind="action" name="dismissDialog:"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="prepareUserSession:"/>
+                <relationship kind="outlet" name="loggedInInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="trackingButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="TrackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrackViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="TrackingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrackingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeMapType:" candidateClass="UISegmentedControl"/>
+                <relationship kind="action" name="stopTracking:"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="TracksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TracksViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshTracks:"/>
+            </relationships>
+        </class>
+        <class className="UsersViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UsersViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshUsers:"/>
+                <relationship kind="outlet" name="usersTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
