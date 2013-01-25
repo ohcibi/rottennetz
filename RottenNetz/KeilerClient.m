@@ -7,8 +7,9 @@
 //
 
 #import "KeilerClient.h"
-#import "PostOperation.h"
-#import "GetOperation.h"
+#import "GETOperation.h"
+#import "POSTOperation.h"
+#import "DELETEOperation.h"
 
 @implementation KeilerClient
 @synthesize queue = _queue;
@@ -31,12 +32,16 @@ static KeilerClient * _sharedClient = nil;
     return self;
 }
 
--(void)startPOSTRequest:(JSONRequest *)request {
-    PostOperation * operation = [[PostOperation alloc] initWithJSONRequest:request];
+-(void)startGETRequest:(JSONRequest *)request {
+    GETOperation * operation = [[GETOperation alloc] initWithJSONRequest:request];
     [self.queue addOperation:operation];
 }
--(void)startGETRequest:(JSONRequest *)request {
-    GetOperation * operation = [[GetOperation alloc] initWithJSONRequest:request];
+-(void)startPOSTRequest:(JSONRequest *)request {
+    POSTOperation * operation = [[POSTOperation alloc] initWithJSONRequest:request];
+    [self.queue addOperation:operation];
+}
+-(void)startDELETERequest:(JSONRequest *)request {
+    DELETEOperation * operation = [[DELETEOperation alloc] initWithJSONRequest:request];
     [self.queue addOperation:operation];
 }
 

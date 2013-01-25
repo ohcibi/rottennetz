@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 ohcibi. All rights reserved.
 //
 
-#import "PostOperation.h"
+#import "POSTOperation.h"
 
-@implementation PostOperation
+@implementation POSTOperation
 
 -(id)initWithJSONRequest:(JSONRequest *)request {
     self = [super initWithJSONRequest:request];

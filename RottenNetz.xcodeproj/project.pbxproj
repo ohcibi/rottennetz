@@ -10,7 +10,6 @@
 		E21FCD7F16B075B7009EF28E /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FCD7E16B075B7009EF28E /* Tracker.m */; };
 		E21FCD8516B08282009EF28E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21FCD8416B08282009EF28E /* CoreLocation.framework */; };
 		E21FCD9416B1AEF2009EF28E /* KeilerHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FCD9316B1AEF2009EF28E /* KeilerHTTPOperation.m */; };
-		E21FCD9716B1B11B009EF28E /* GetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FCD9616B1B11B009EF28E /* GetOperation.m */; };
 		E21FCD9916B1B927009EF28E /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = E21FCD9816B1B927009EF28E /* users.png */; };
 		E21FCD9E16B1DE37009EF28E /* TrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FCD9D16B1DE37009EF28E /* TrackViewController.m */; };
 		E250C09F16AEF08600022B70 /* tracks.png in Resources */ = {isa = PBXBuildFile; fileRef = E250C09E16AEF08600022B70 /* tracks.png */; };
@@ -23,7 +22,7 @@
 		E250C0C316AF31CE00022B70 /* KeilerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C0C216AF31CE00022B70 /* KeilerClient.m */; };
 		E250C11916B03B9000022B70 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E250C11816B03B9000022B70 /* Settings.bundle */; };
 		E250C12816B04C5300022B70 /* JSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C12716B04C5300022B70 /* JSONRequest.m */; };
-		E250C12B16B04F1B00022B70 /* PostOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C12A16B04F1A00022B70 /* PostOperation.m */; };
+		E250C12B16B04F1B00022B70 /* POSTOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E250C12A16B04F1A00022B70 /* POSTOperation.m */; };
 		E2D81DD916AEB7D70029D8BA /* RottenBoardIPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D81DD816AEB7D70029D8BA /* RottenBoardIPhone.storyboard */; };
 		E2D81DE016AEC10E0029D8BA /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D81DDC16AEC10E0029D8BA /* map.png */; };
 		E2D81DE616AECDD30029D8BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D81DE516AECDD30029D8BA /* MapKit.framework */; };
@@ -44,6 +43,8 @@
 		E2EBAD8116AEB5EF00156BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EBAD6216AEB5EF00156BE5 /* Foundation.framework */; };
 		E2EBAD8916AEB5EF00156BE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2EBAD8716AEB5EF00156BE5 /* InfoPlist.strings */; };
 		E2EBAD8C16AEB5EF00156BE5 /* RottenNetzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EBAD8B16AEB5EF00156BE5 /* RottenNetzTests.m */; };
+		E2FFD23916B3263E009E86D7 /* DELETEOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FFD23816B3263E009E86D7 /* DELETEOperation.m */; };
+		E2FFD23C16B326B3009E86D7 /* GETOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FFD23B16B326B3009E86D7 /* GETOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +63,7 @@
 		E21FCD8416B08282009EF28E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E21FCD9016B1ACA8009EF28E /* KeilerHTTPOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeilerHTTPOperation.h; sourceTree = "<group>"; };
 		E21FCD9316B1AEF2009EF28E /* KeilerHTTPOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeilerHTTPOperation.m; sourceTree = "<group>"; };
-		E21FCD9516B1B11B009EF28E /* GetOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOperation.h; sourceTree = "<group>"; };
-		E21FCD9616B1B11B009EF28E /* GetOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOperation.m; sourceTree = "<group>"; };
+		E21FCD9516B1B11B009EF28E /* GETOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETOperation.h; sourceTree = "<group>"; };
 		E21FCD9816B1B927009EF28E /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
 		E21FCD9C16B1DE37009EF28E /* TrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackViewController.h; sourceTree = "<group>"; };
 		E21FCD9D16B1DE37009EF28E /* TrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackViewController.m; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 		E250C11B16B047F900022B70 /* KeilerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeilerClient.h; sourceTree = "<group>"; };
 		E250C12416B04B9400022B70 /* JSONRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRequest.h; sourceTree = "<group>"; };
 		E250C12716B04C5300022B70 /* JSONRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONRequest.m; sourceTree = "<group>"; };
-		E250C12916B04F1A00022B70 /* PostOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostOperation.h; sourceTree = "<group>"; };
-		E250C12A16B04F1A00022B70 /* PostOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostOperation.m; sourceTree = "<group>"; };
+		E250C12916B04F1A00022B70 /* POSTOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POSTOperation.h; sourceTree = "<group>"; };
+		E250C12A16B04F1A00022B70 /* POSTOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POSTOperation.m; sourceTree = "<group>"; };
 		E2D81DD816AEB7D70029D8BA /* RottenBoardIPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RottenBoardIPhone.storyboard; sourceTree = "<group>"; };
 		E2D81DDC16AEC10E0029D8BA /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		E2D81DE516AECDD30029D8BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -114,6 +114,9 @@
 		E2EBAD8816AEB5EF00156BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E2EBAD8A16AEB5EF00156BE5 /* RottenNetzTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RottenNetzTests.h; sourceTree = "<group>"; };
 		E2EBAD8B16AEB5EF00156BE5 /* RottenNetzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RottenNetzTests.m; sourceTree = "<group>"; };
+		E2FFD23716B3263E009E86D7 /* DELETEOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DELETEOperation.h; sourceTree = "<group>"; };
+		E2FFD23816B3263E009E86D7 /* DELETEOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DELETEOperation.m; sourceTree = "<group>"; };
+		E2FFD23B16B326B3009E86D7 /* GETOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GETOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,12 +172,14 @@
 				E250C0C216AF31CE00022B70 /* KeilerClient.m */,
 				E250C12416B04B9400022B70 /* JSONRequest.h */,
 				E250C12716B04C5300022B70 /* JSONRequest.m */,
-				E250C12916B04F1A00022B70 /* PostOperation.h */,
-				E250C12A16B04F1A00022B70 /* PostOperation.m */,
+				E250C12916B04F1A00022B70 /* POSTOperation.h */,
+				E250C12A16B04F1A00022B70 /* POSTOperation.m */,
 				E21FCD9016B1ACA8009EF28E /* KeilerHTTPOperation.h */,
 				E21FCD9316B1AEF2009EF28E /* KeilerHTTPOperation.m */,
-				E21FCD9516B1B11B009EF28E /* GetOperation.h */,
-				E21FCD9616B1B11B009EF28E /* GetOperation.m */,
+				E21FCD9516B1B11B009EF28E /* GETOperation.h */,
+				E2FFD23B16B326B3009E86D7 /* GETOperation.m */,
+				E2FFD23716B3263E009E86D7 /* DELETEOperation.h */,
+				E2FFD23816B3263E009E86D7 /* DELETEOperation.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -428,11 +433,12 @@
 				E250C0BB16AF2CE400022B70 /* UserSession.m in Sources */,
 				E250C0C316AF31CE00022B70 /* KeilerClient.m in Sources */,
 				E250C12816B04C5300022B70 /* JSONRequest.m in Sources */,
-				E250C12B16B04F1B00022B70 /* PostOperation.m in Sources */,
+				E250C12B16B04F1B00022B70 /* POSTOperation.m in Sources */,
 				E21FCD7F16B075B7009EF28E /* Tracker.m in Sources */,
 				E21FCD9416B1AEF2009EF28E /* KeilerHTTPOperation.m in Sources */,
-				E21FCD9716B1B11B009EF28E /* GetOperation.m in Sources */,
 				E21FCD9E16B1DE37009EF28E /* TrackViewController.m in Sources */,
+				E2FFD23916B3263E009E86D7 /* DELETEOperation.m in Sources */,
+				E2FFD23C16B326B3009E86D7 /* GETOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,8 +22,7 @@
 -(id)initWithUrl:(NSString *)url dictionary:(NSDictionary *)dict delegate:(id)delegate success:(SEL)success andError:(SEL)error {
     self = [super init];
     if (self) {
-        NSString * urlRoot = [[NSUserDefaults standardUserDefaults] stringForKey:@"url_root"];
-        self.url = [NSURL URLWithString:[urlRoot stringByAppendingString:url]];
+        self.url = [self getURLFromString:url];
         self.jsonData = [self jsonDataFromDictionary:dict];
         self.delegate = delegate;
         self.success = success;
@@ -32,14 +31,25 @@
     return self;
 }
 -(NSData *)jsonDataFromDictionary:(NSDictionary *)dict {
-    NSMutableDictionary * theDict = [NSMutableDictionary dictionaryWithDictionary:dict];
+    NSError * jsonError;
+    return [NSJSONSerialization dataWithJSONObject:dict options:0 error:&jsonError];
+}
+-(NSURL *)getURLFromString:(NSString *)strURL {
+    NSString * urlRoot = [[NSUserDefaults standardUserDefaults] stringForKey:@"url_root"];
+    NSMutableString * fullUrl = [NSMutableString stringWithString:[urlRoot stringByAppendingString:strURL]];
+    
     NSString * auth_token = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth_token"];
     if (nil != auth_token) {
-        [theDict setObject:auth_token forKey:@"auth_token"];
+        NSString * query_token;
+        if ([fullUrl rangeOfString:@"?"].location == NSNotFound) {
+            query_token = [NSString stringWithFormat:@"?auth_token=%@", auth_token];
+        } else {
+            query_token = [NSString stringWithFormat:@"&auth_token=%@", auth_token];
+        }
+        [fullUrl appendString:query_token];
     }
     
-    NSError * jsonError;
-    return [NSJSONSerialization dataWithJSONObject:theDict options:0 error:&jsonError];
+    return [NSURL URLWithString:fullUrl];
 }
 
 @end

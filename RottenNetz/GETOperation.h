@@ -8,6 +8,6 @@
 
 #import "KeilerHTTPOperation.h"
 
-@interface GetOperation : KeilerHTTPOperation
+@interface GETOperation : KeilerHTTPOperation
 
 @end

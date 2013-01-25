@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "KeilerHTTPOperation.h"
 
-@interface PostOperation : KeilerHTTPOperation
+@interface POSTOperation : KeilerHTTPOperation
 @end

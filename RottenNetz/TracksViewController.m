@@ -11,6 +11,7 @@
 #import "JSONRequest.h"
 #import "KeilerClient.h"
 #import "TrackViewController.h"
+#import "UserSession.h"
 
 @interface TracksViewController ()
 
@@ -29,13 +30,17 @@
     [self loadTracks];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if ([self isAllowedToEdit]) self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Zum aktualisieren weiterziehen!"];
     [self.refreshControl addTarget:self
                             action:@selector(refreshTracks:)
                   forControlEvents:UIControlEventValueChanged];
 }
 
+-(BOOL)isAllowedToEdit {
+    return self.user.user_id == [UserSession sharedSession].user.user_id;
+}
 
 - (void)refreshTracks:(UIRefreshControl *)refresh {
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Lade Tracks..."];
@@ -108,5 +113,23 @@
         TrackViewController * tvc = [segue destinationViewController];
         tvc.track = [self.tracks objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete && [self isAllowedToEdit]) {
+        Track * track = [self.tracks objectAtIndex:indexPath.row];
+        [self.tracks removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        NSString * url = [NSString stringWithFormat:@"/api/tracks/%d", track.track_id];
+        JSONRequest * request = [[JSONRequest alloc] initWithUrl:url delegate:self success:@selector(finishDeleteTrack:) andError:@selector(failureLoadTracks:)];
+        [[KeilerClient sharedClient] startDELETERequest:request];
+    }
+}
+-(void)finishDeleteTrack:(NSDictionary *)response {
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Track gelöscht" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+-(void)failureDeleteTrack:(NSDictionary *)response {
+    
 }
 @end

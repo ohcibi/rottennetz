@@ -15,8 +15,9 @@
 
 +(KeilerClient *)sharedClient;
 
--(void)startPOSTRequest:(JSONRequest *)request;
 -(void)startGETRequest:(JSONRequest *)request;
+-(void)startPOSTRequest:(JSONRequest *)request;
+-(void)startDELETERequest:(JSONRequest *)request;
 
 @property(nonatomic, strong) NSOperationQueue * queue;
 @end

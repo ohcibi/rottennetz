@@ -1,19 +1,21 @@
 //
-//  GetOperation.m
+//  DELETEOperation.m
 //  RottenNetz
 //
-//  Created by ohcibi on 24.01.13.
+//  Created by ohcibi on 25.01.13.
 //  Copyright (c) 2013 ohcibi. All rights reserved.
 //
 
-#import "GetOperation.h"
+#import "DELETEOperation.h"
 
-@implementation GetOperation
+@implementation DELETEOperation
+
 -(id)initWithJSONRequest:(JSONRequest *)request {
     self = [super initWithJSONRequest:request];
     if (self) {
-        [self.request setHTTPMethod:@"GET"];
+        [self.request setHTTPMethod:@"DELETE"];
     }
     return self;
 }
+
 @end
