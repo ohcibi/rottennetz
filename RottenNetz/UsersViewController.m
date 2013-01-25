@@ -27,6 +27,9 @@
     [super viewWillAppear:animated];
     [self reloadUsers];
 }
+- (IBAction)refreshUsers:(id)sender {
+    [self reloadUsers];
+}
 -(void)reloadUsers {
     JSONRequest * request = [[JSONRequest alloc] initWithUrl:@"/api/users" delegate:self success:@selector(reloadedUsers:) andError:@selector(failReloadUsers:)];
     
@@ -74,5 +77,4 @@
         tvc.user = user;
     }
 }
-
 @end

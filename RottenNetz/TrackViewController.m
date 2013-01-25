@@ -17,6 +17,7 @@
 @implementation TrackViewController
 @synthesize track = _track;
 @synthesize polyline = _polyline;
+@synthesize polylineView = _polylineView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,11 +50,13 @@
 -(MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
     MKOverlayView * overlayView;
     if (overlay == self.polyline) {
-        MKPolylineView * polylineView  = [[MKPolylineView alloc] initWithPolyline:self.polyline];
-        polylineView.fillColor = [UIColor colorWithRed:0.8 green:0.1 blue:0.1 alpha:0.8];
-        polylineView.strokeColor = [UIColor colorWithRed:0.8 green:0.1 blue:0.1 alpha:0.8];
-        polylineView.lineWidth = 3;
-        overlayView = polylineView;
+        if (nil == self.polylineView) {
+            self.polylineView  = [[MKPolylineView alloc] initWithPolyline:self.polyline];
+            self.polylineView.fillColor = [UIColor colorWithRed:0.8 green:0.1 blue:0.1 alpha:0.8];
+            self.polylineView.strokeColor = [UIColor colorWithRed:0.8 green:0.1 blue:0.1 alpha:0.8];
+            self.polylineView.lineWidth = 3;
+        }
+        overlayView = self.polylineView;
     }
     return overlayView;
 }

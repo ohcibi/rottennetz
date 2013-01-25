@@ -10,6 +10,8 @@
 
 @interface UsersViewController : UITableViewController
 
+- (IBAction)refreshUsers:(id)sender;
+
 @property(nonatomic, strong) NSMutableArray * users;
 @property (strong, nonatomic) IBOutlet UITableView *usersTable;
 @end

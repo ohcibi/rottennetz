@@ -29,6 +29,7 @@
 -(void)main {
     _connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self];
     [_connection start];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -40,13 +41,11 @@
     [_response appendData:data];
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSDictionary * response = [NSDictionary dictionaryWithObjectsAndKeys:@"Der Server ist nicht erreichbar. Bitte überprüfe die Konfiguration in den Einstellungen", @"message", nil];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [self.jsonRequest.delegate performSelector:self.jsonRequest.error withObject:response];
-#pragma clang diagnostic pop
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Der Server ist nicht erreichbar. Bitte überprüfe die Konfiguration in den Einstellungen" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     NSError * jsonError;
     NSDictionary * jsonResponse = [NSJSONSerialization JSONObjectWithData:_response
                                                               options:NSJSONReadingMutableContainers

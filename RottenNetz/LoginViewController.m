@@ -39,11 +39,9 @@
                                                          success:@selector(loginSuccess:)
                                                         andError:@selector(loginFailure:)];
     [self.client startPOSTRequest:jsonRequest];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 -(void)loginSuccess:(NSDictionary *)response {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     NSString * userAsJSON = [response objectForKey:@"user"];
     NSDictionary * user = [self userFromJSON:userAsJSON];
     NSString * name = [user objectForKey:@"name"];

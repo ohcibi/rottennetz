@@ -13,10 +13,12 @@
 @interface TrackViewController : UIViewController <MKMapViewDelegate> {
     Track * _track;
     MKPolyline * _polyline;
+    MKPolylineView * _polylineView;
 }
 
 @property(nonatomic, strong) Track * track;
 @property(nonatomic, strong) MKPolyline * polyline;
+@property(nonatomic, strong) MKPolylineView * polylineView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end

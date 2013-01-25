@@ -32,6 +32,10 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (IBAction)refreshTracks:(id)sender {
+    [self loadTracks];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -91,5 +95,4 @@
         tvc.track = [self.tracks objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
-
 @end

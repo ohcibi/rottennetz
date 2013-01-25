@@ -201,18 +201,18 @@
 		E2D81DE716AEDA760029D8BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E250C0B716AF160000022B70 /* UsersViewController.h */,
-				E2D81DE916AEDAB00029D8BA /* UsersViewController.m */,
-				E2D81DEE16AEEBD50029D8BA /* TracksViewController.h */,
-				E2D81DEF16AEEBD50029D8BA /* TracksViewController.m */,
-				E250C0A216AEF9BE00022B70 /* TrackingViewController.h */,
-				E250C0A316AEF9BE00022B70 /* TrackingViewController.m */,
 				E250C0B016AF155900022B70 /* LoginViewController.h */,
 				E250C0B116AF155900022B70 /* LoginViewController.m */,
 				E250C0B416AF158300022B70 /* RootViewController.h */,
 				E250C0B516AF158400022B70 /* RootViewController.m */,
 				E21FCD9C16B1DE37009EF28E /* TrackViewController.h */,
 				E21FCD9D16B1DE37009EF28E /* TrackViewController.m */,
+				E250C0A216AEF9BE00022B70 /* TrackingViewController.h */,
+				E250C0A316AEF9BE00022B70 /* TrackingViewController.m */,
+				E2D81DEE16AEEBD50029D8BA /* TracksViewController.h */,
+				E2D81DEF16AEEBD50029D8BA /* TracksViewController.m */,
+				E250C0B716AF160000022B70 /* UsersViewController.h */,
+				E2D81DE916AEDAB00029D8BA /* UsersViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

@@ -13,6 +13,7 @@
     User * _user;
     NSMutableArray * _tracks;
 }
+- (IBAction)refreshTracks:(id)sender;
 
 @property(nonatomic, strong) NSMutableArray * tracks;
 @property(nonatomic, strong) User * user;

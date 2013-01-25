@@ -271,7 +271,13 @@
                             <outlet property="delegate" destination="ekp-I7-Cm5" id="ymh-UZ-HaK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tracks" id="Czu-ut-PZc"/>
+                    <navigationItem key="navigationItem" title="Tracks" id="Czu-ut-PZc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tk6-Jd-GTm">
+                            <connections>
+                                <action selector="refreshTracks:" destination="ekp-I7-Cm5" id="eav-SZ-yS3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DC6-ch-TG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -417,7 +423,13 @@
                             <outlet property="delegate" destination="6pY-OW-4fn" id="kCx-ty-PtO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Benutzerliste" id="ktB-sj-ffp"/>
+                    <navigationItem key="navigationItem" title="Benutzerliste" id="ktB-sj-ffp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="SLo-kc-VXA">
+                            <connections>
+                                <action selector="refreshUsers:" destination="6pY-OW-4fn" id="n60-rF-BMp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="7DU-SD-jKC" id="68D-ao-Fmu"/>
                         <outlet property="usersTable" destination="4oh-4X-KY2" id="lfJ-Go-l4U"/>
