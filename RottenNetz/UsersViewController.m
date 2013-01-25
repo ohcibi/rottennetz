@@ -22,20 +22,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.users = [[NSMutableArray alloc] init];
+    
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Zum aktualisieren weiterziehen!"];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshUsers:)
+                  forControlEvents:UIControlEventValueChanged];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadUsers];
 }
-- (IBAction)refreshUsers:(id)sender {
+- (void)refreshUsers:(id)sender {
     [self reloadUsers];
 }
 -(void)reloadUsers {
-    JSONRequest * request = [[JSONRequest alloc] initWithUrl:@"/api/users" delegate:self success:@selector(reloadedUsers:) andError:@selector(failReloadUsers:)];
+    JSONRequest * request = [[JSONRequest alloc] initWithUrl:@"/api/users" delegate:self success:@selector(finishReloadUsers:) andError:@selector(failReloadUsers:)];
     
     [[KeilerClient sharedClient] startGETRequest:request];
 }
--(void)reloadedUsers:(NSDictionary *)response {
+-(void)finishReloadUsers:(NSDictionary *)response {
     [self.users removeAllObjects];
     for (NSDictionary * user in response) {
         User * newUser = [[User alloc] initWithName:[user objectForKey:@"name"]
@@ -44,8 +49,16 @@
         [self.users addObject:newUser];
     }
     [self.tableView reloadData];
+    [self endRefreshing];
 }
 -(void)failReloadUsers:(NSDictionary *)response {
+}
+-(void)endRefreshing {
+    NSDateFormatter * f = [[NSDateFormatter alloc] init];
+    [f setDateFormat:@"dd. MMM HH:mm:ss"];
+    NSString * title = [NSString stringWithFormat:@"Zuletzt aktualisiert: %@", [f stringFromDate:[NSDate date]]];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:title];
+    [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {

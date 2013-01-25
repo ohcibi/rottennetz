@@ -275,7 +275,7 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="aKM-Nc-SJW">
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle">
-                            <fragment content="Deine Mutter">
+                            <fragment content="...">
                                 <attributes>
                                     <font key="NSFont" metaFont="toolTip"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -429,13 +429,19 @@
                             <outlet property="delegate" destination="6pY-OW-4fn" id="kCx-ty-PtO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User" id="ktB-sj-ffp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="SLo-kc-VXA">
-                            <connections>
-                                <action selector="refreshUsers:" destination="6pY-OW-4fn" id="n60-rF-BMp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="User" id="ktB-sj-ffp"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="16X-6R-6CT">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="...">
+                                <attributes>
+                                    <font key="NSFont" metaFont="toolTip"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="searchDisplayController" destination="7DU-SD-jKC" id="68D-ao-Fmu"/>
                         <outlet property="usersTable" destination="4oh-4X-KY2" id="lfJ-Go-l4U"/>
@@ -466,6 +472,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ob4-JY-ZEA"/>
+        <segue reference="nYE-22-R8l"/>
     </inferredMetricsTieBreakers>
 </document>
