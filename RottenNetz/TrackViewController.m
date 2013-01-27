@@ -14,7 +14,7 @@
 
 #import "TrackViewController.h"
 #import "JSONRequest.h"
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
 #import "StalkerService.h"
 
 @implementation TrackViewController
@@ -35,8 +35,10 @@
     }
 }
 -(void)viewWillDisappear:(BOOL)animated {
-    [[StalkerService sharedStalkerForTrackId:self.track.track_id] stopStalking];
-    [[StalkerService sharedStalkerForTrackId:self.track.track_id] removeObserver:self forKeyPath:@"location"];
+    if (!self.track.isFinished) {
+        [[StalkerService sharedStalkerForTrackId:self.track.track_id] stopStalking];
+        [[StalkerService sharedStalkerForTrackId:self.track.track_id] removeObserver:self forKeyPath:@"location"];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,7 +47,7 @@
 -(void)drawTrack {
     NSString * url = [NSString stringWithFormat:@"/api/tracks/%d/coordinates", self.track.track_id];
     JSONRequest * request = [[JSONRequest alloc] initWithUrl:url delegate:self success:@selector(finishLoadCoordinates:) andError:@selector(failureLoadCoordinates:)];
-    [[KeilerClient sharedClient] startGETRequest:request];
+    [[KeilerHTTPClient sharedClient] startGETRequest:request];
 }
 -(void)finishLoadCoordinates:(NSDictionary *)response {
     int i = 0, count = [response count];

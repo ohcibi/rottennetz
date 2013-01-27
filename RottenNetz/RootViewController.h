@@ -11,7 +11,7 @@
 #import "UserSession.h"
 #import "TrackerService.h"
 
-@interface RootViewController : UIViewController {
+@interface RootViewController : UITableViewController {
     UserSession * _session;
     TrackerService * _tracker;
 }

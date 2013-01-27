@@ -6,24 +6,25 @@
 //  Copyright (c) 2013 ohcibi. All rights reserved.
 //
 
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
 #import "GETOperation.h"
 #import "POSTOperation.h"
+#import "PUTOperation.h"
 #import "DELETEOperation.h"
 
-@implementation KeilerClient
+@implementation KeilerHTTPClient
 @synthesize queue = _queue;
 
-static KeilerClient * _sharedClient = nil;
+static KeilerHTTPClient * _sharedClient = nil;
 
-+(KeilerClient *)sharedClient {
++(KeilerHTTPClient *)sharedClient {
     if (_sharedClient == nil) {
         _sharedClient = [[self alloc] init];
     }
     
     return _sharedClient;
 }
--(KeilerClient *)init {
+-(KeilerHTTPClient *)init {
     self = [super init];
     if (self) {
         self.queue = [[NSOperationQueue alloc] init];
@@ -38,6 +39,10 @@ static KeilerClient * _sharedClient = nil;
 }
 -(void)startPOSTRequest:(JSONRequest *)request {
     POSTOperation * operation = [[POSTOperation alloc] initWithJSONRequest:request];
+    [self.queue addOperation:operation];
+}
+-(void)startPUTRequest:(JSONRequest *)request {
+    PUTOperation * operation = [[PUTOperation alloc] initWithJSONRequest:request];
     [self.queue addOperation:operation];
 }
 -(void)startDELETERequest:(JSONRequest *)request {

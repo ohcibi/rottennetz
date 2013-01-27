@@ -7,25 +7,24 @@
 //
 
 #import "LoginViewController.h"
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
+#import "UserSession.h"
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
-@synthesize client = _client;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self.emailField becomeFirstResponder];
     self.emailField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
-    self.client = [KeilerClient sharedClient];
+    
+    self.logoutButton.enabled = [UserSession sharedSession].user != nil;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -38,7 +37,7 @@
                                                         delegate:self
                                                          success:@selector(loginSuccess:)
                                                         andError:@selector(loginFailure:)];
-    [self.client startPOSTRequest:jsonRequest];
+    [[KeilerHTTPClient sharedClient] startPOSTRequest:jsonRequest];
 }
 
 -(void)loginSuccess:(NSDictionary *)response {
@@ -57,7 +56,11 @@
 
     [self.passwordField resignFirstResponder];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:@"Anmeldung erfolgreich"
+                               delegate:self
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
 }
 -(void)loginFailure:(NSDictionary *)response {
     NSString * message = [NSString stringWithFormat:@"Login fehlgeschlagen. %@.", [response objectForKey:@"message"], nil];
@@ -83,11 +86,19 @@
 }
 
 - (IBAction)clearData:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:0 forKey:@"user_id"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"name"];
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"email"];
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"auth_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [[[UIAlertView alloc] initWithTitle:@"Gelöscht" message:@"Userdaten gelöscht" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    [self dismissDialog:sender];
+    [[[UIAlertView alloc] initWithTitle:@"Gelöscht"
+                                message:@"Userdaten gelöscht"
+                               delegate:self
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self dismissDialog:nil];
 }
 
 - (IBAction)dismissDialog:(id)sender {

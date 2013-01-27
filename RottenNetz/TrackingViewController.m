@@ -9,10 +9,6 @@
 #import "TrackingViewController.h"
 #import "JSONRequest.h"
 
-@interface TrackingViewController ()
-
-@end
-
 @implementation TrackingViewController
 @synthesize tracker = _tracker;
 @synthesize client = _client;
@@ -22,7 +18,7 @@
     self.mapView.showsUserLocation = YES;
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
     
-    self.client = [KeilerClient sharedClient];
+    self.client = [KeilerHTTPClient sharedClient];
     self.tracker = [TrackerService sharedTracker];
     
     if (!self.tracker.tracking) {
@@ -64,6 +60,28 @@
 
 - (IBAction)stopTracking:(id)sender {
     [self.tracker stopTracking];
-    //TODO: go to TrackViewController
+    [self finishTrack];
 }
+
+-(void)finishTrack {
+    NSString * url = [NSString stringWithFormat:@"/api/tracks/%d/finish", self.tracker.track_id];
+    JSONRequest * request = [[JSONRequest alloc] initWithUrl:url
+                                                    delegate:self
+                                                     success:@selector(successFinishTrack:)
+                                                    andError:@selector(failureFinishTrack:)];
+    [[KeilerHTTPClient sharedClient] startPUTRequest:request];
+}
+-(void)successFinishTrack:(NSDictionary *)response {
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:@"Track abgeschlossen"
+                               delegate:self
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+}
+-(void)failureFinishTrack:(NSDictionary *)response {
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 @end

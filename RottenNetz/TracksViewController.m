@@ -9,7 +9,7 @@
 #import "TracksViewController.h"
 #import "Track.h"
 #import "JSONRequest.h"
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
 #import "TrackViewController.h"
 #import "UserSession.h"
 
@@ -55,7 +55,7 @@
 -(void)loadTracks {
     NSString * url = [NSString stringWithFormat:@"/api/users/%d/tracks", self.user.user_id];
     JSONRequest * request = [[JSONRequest alloc] initWithUrl:url delegate:self success:@selector(finishLoadTracks:) andError:@selector(failureLoadTracks:)];
-    [[KeilerClient sharedClient] startGETRequest:request];
+    [[KeilerHTTPClient sharedClient] startGETRequest:request];
 }
 -(void)finishLoadTracks:(NSDictionary *)response {
     [self.tracks removeAllObjects];
@@ -125,7 +125,7 @@
         
         NSString * url = [NSString stringWithFormat:@"/api/tracks/%d", track.track_id];
         JSONRequest * request = [[JSONRequest alloc] initWithUrl:url delegate:self success:@selector(finishDeleteTrack:) andError:@selector(failureLoadTracks:)];
-        [[KeilerClient sharedClient] startDELETERequest:request];
+        [[KeilerHTTPClient sharedClient] startDELETERequest:request];
     }
 }
 -(void)finishDeleteTrack:(NSDictionary *)response {

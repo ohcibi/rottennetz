@@ -9,7 +9,7 @@
 #import "UsersViewController.h"
 #import "User.h"
 #import "JSONRequest.h"
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
 #import "TracksViewController.h"
 
 @interface UsersViewController ()
@@ -38,7 +38,7 @@
 -(void)reloadUsers {
     JSONRequest * request = [[JSONRequest alloc] initWithUrl:@"/api/users" delegate:self success:@selector(finishReloadUsers:) andError:@selector(failReloadUsers:)];
     
-    [[KeilerClient sharedClient] startGETRequest:request];
+    [[KeilerHTTPClient sharedClient] startGETRequest:request];
 }
 -(void)finishReloadUsers:(NSDictionary *)response {
     [self.users removeAllObjects];

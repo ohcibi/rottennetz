@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
 
 @interface TrackerService : NSObject <CLLocationManagerDelegate> {
     int _track_id;
     BOOL _tracking;
     CLLocationManager * _locationManager;
     CLLocation * _lastLocation;
-    KeilerClient * _client;
+    KeilerHTTPClient * _client;
 }
 
 +(TrackerService *)sharedTracker;
@@ -27,5 +27,5 @@
 @property(nonatomic) BOOL tracking;
 @property(nonatomic, strong) CLLocationManager * locationManager;
 @property(nonatomic, strong) CLLocation * lastLocation;
-@property(nonatomic, strong) KeilerClient * client;
+@property(nonatomic, strong) KeilerHTTPClient * client;
 @end

@@ -31,7 +31,7 @@ static TrackerService * _sharedTracker = nil;
         self.locationManager.delegate = self;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
         
-        self.client = [KeilerClient sharedClient];
+        self.client = [KeilerHTTPClient sharedClient];
     }
     return self;
 }

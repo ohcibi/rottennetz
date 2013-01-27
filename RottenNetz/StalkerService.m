@@ -7,7 +7,7 @@
 //
 
 #import "StalkerService.h"
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
 #import "JSONRequest.h"
 
 
@@ -61,7 +61,7 @@ static NSMutableDictionary * _stalkers;
 -(void)stalk {
     NSString * url = [NSString stringWithFormat:@"/api/tracks/%d/coordinates/last", self.track_id];
     JSONRequest * request = [[JSONRequest alloc] initWithUrl:url delegate:self success:@selector(finishLoadCoordinate:) andError:@selector(failureLoadCoordinate:)];
-    [[KeilerClient sharedClient] startGETRequest:request];
+    [[KeilerHTTPClient sharedClient] startGETRequest:request];
 }
 -(void)finishLoadCoordinate:(NSDictionary *)coordinate {
     double lat = [[coordinate objectForKey:@"lat"] doubleValue];

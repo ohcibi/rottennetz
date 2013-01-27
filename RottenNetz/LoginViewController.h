@@ -8,17 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "UserSession.h"
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
 
-@interface LoginViewController : UITableViewController <UITextFieldDelegate> {
-    KeilerClient * _client;
-}
+@interface LoginViewController : UITableViewController <UITextFieldDelegate, UIAlertViewDelegate>
+
 - (void)setupUserData;
 - (IBAction)clearData:(id)sender;
 - (IBAction)dismissDialog:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 
-@property(nonatomic, strong) KeilerClient * client;
 @end

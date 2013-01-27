@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "KeilerClient.h"
+#import "KeilerHTTPClient.h"
 #import "TrackerService.h"
 
-@interface TrackingViewController : UIViewController {
+@interface TrackingViewController : UIViewController <UIAlertViewDelegate> {
     TrackerService * _tracker;
-    KeilerClient * _client;
+    KeilerHTTPClient * _client;
 }
 - (IBAction)changeMapType:(UISegmentedControl *)sender;
 - (IBAction)stopTracking:(id)sender;
@@ -21,5 +21,5 @@
 @property(nonatomic, weak) IBOutlet MKMapView * mapView;
 
 @property(nonatomic, strong) TrackerService * tracker;
-@property(nonatomic, strong) KeilerClient * client;
+@property(nonatomic, strong) KeilerHTTPClient * client;
 @end

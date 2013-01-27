@@ -10,10 +10,6 @@
 #import "LoginViewController.h"
 #import "TracksViewController.h"
 
-@interface RootViewController ()
-
-@end
-
 @implementation RootViewController {
     User * _user;
 }
