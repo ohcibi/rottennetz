@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UsersViewController : UITableViewController
-
-- (IBAction)refreshUsers:(id)sender;
-
-@property(nonatomic, strong) NSMutableArray * users;
+@interface UsersViewController : UITableViewController {
+    NSMutableArray * _users;
+}
 @property (strong, nonatomic) IBOutlet UITableView *usersTable;
 @end

@@ -11,17 +11,13 @@
 #import "JSONRequest.h"
 #import "KeilerHTTPClient.h"
 #import "TracksViewController.h"
-
-@interface UsersViewController ()
-
-@end
+#import "UserCell.h"
 
 @implementation UsersViewController
-@synthesize users;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.users = [[NSMutableArray alloc] init];
+    _users = [[NSMutableArray alloc] init];
     
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Zum aktualisieren weiterziehen!"];
     [self.refreshControl addTarget:self
@@ -41,12 +37,13 @@
     [[KeilerHTTPClient sharedClient] startGETRequest:request];
 }
 -(void)finishReloadUsers:(NSDictionary *)response {
-    [self.users removeAllObjects];
+    [_users removeAllObjects];
     for (NSDictionary * user in response) {
         User * newUser = [[User alloc] initWithName:[user objectForKey:@"name"]
                                    userId:[[user objectForKey:@"id"] integerValue]
                            andTracksCount:[[user objectForKey:@"tracks_count"] integerValue]];
-        [self.users addObject:newUser];
+        newUser.md5email = [user objectForKey:@"md5email"];
+        [_users addObject:newUser];
     }
     [self.tableView reloadData];
     [self endRefreshing];
@@ -70,22 +67,31 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.users count];
+    return [_users count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cid = @"UserCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cid];
+    UserCell * cell = [tableView dequeueReusableCellWithIdentifier:cid];
     
-    User * user = [self.users objectAtIndex:indexPath.row];
-    cell.textLabel.text = user.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d Tracks", user.tracks_count];
+    User * user = [_users objectAtIndex:indexPath.row];
+    cell.titleLabel.text = user.name;
+    cell.detailsLabel.text = [NSString stringWithFormat:@"%d Tracks", user.tracks_count];
+    
+    [cell.activityIndicator startAnimating];
+    [[KeilerHTTPClient sharedClient] startAsyncOperationWithBlock:^(void) {
+        NSString * gravatarUrl = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=112&d=retro", user.md5email];
+        NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:gravatarUrl]];
+        UIImage * gravatar = [UIImage imageWithData:imageData scale:2]; // retina compat
+        cell.gravatarImage.image = gravatar;
+        [cell.activityIndicator stopAnimating];
+    }];
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"usersToTracksSegue"]) {
-        User * user = [self.users objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        User * user = [_users objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         TracksViewController * tvc = [segue destinationViewController];
         tvc.user = user;
     }

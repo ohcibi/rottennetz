@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 ohcibi. All rights reserved.
 //
 
+#define MAX_ASYNC_REQUESTS 3
+
 #import "KeilerHTTPClient.h"
 #import "GETOperation.h"
 #import "POSTOperation.h"
@@ -13,7 +15,6 @@
 #import "DELETEOperation.h"
 
 @implementation KeilerHTTPClient
-@synthesize queue = _queue;
 
 static KeilerHTTPClient * _sharedClient = nil;
 
@@ -27,27 +28,35 @@ static KeilerHTTPClient * _sharedClient = nil;
 -(KeilerHTTPClient *)init {
     self = [super init];
     if (self) {
-        self.queue = [[NSOperationQueue alloc] init];
-        self.queue.maxConcurrentOperationCount = 1;
+        _queue = [[NSOperationQueue alloc] init];
+        _queue.maxConcurrentOperationCount = 1;
+        
+        _asyncQueue = [[NSOperationQueue alloc] init];
+        _asyncQueue.maxConcurrentOperationCount = MAX_ASYNC_REQUESTS;
     }
     return self;
 }
 
 -(void)startGETRequest:(JSONRequest *)request {
     GETOperation * operation = [[GETOperation alloc] initWithJSONRequest:request];
-    [self.queue addOperation:operation];
+    [_queue addOperation:operation];
 }
 -(void)startPOSTRequest:(JSONRequest *)request {
     POSTOperation * operation = [[POSTOperation alloc] initWithJSONRequest:request];
-    [self.queue addOperation:operation];
+    [_queue addOperation:operation];
 }
 -(void)startPUTRequest:(JSONRequest *)request {
     PUTOperation * operation = [[PUTOperation alloc] initWithJSONRequest:request];
-    [self.queue addOperation:operation];
+    [_queue addOperation:operation];
 }
 -(void)startDELETERequest:(JSONRequest *)request {
     DELETEOperation * operation = [[DELETEOperation alloc] initWithJSONRequest:request];
-    [self.queue addOperation:operation];
+    [_queue addOperation:operation];
+}
+
+-(void)startAsyncOperationWithBlock:(void (^)(void))block {
+    NSBlockOperation * operation = [NSBlockOperation blockOperationWithBlock:block];
+    [_asyncQueue addOperation:operation];
 }
 
 @end

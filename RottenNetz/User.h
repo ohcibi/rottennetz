@@ -12,6 +12,7 @@
     int _user_id;
     NSString * _name;
     NSString * _email;
+    NSString * _md5email;
     int _tracks_count;
 }
 
@@ -21,5 +22,6 @@
 @property(nonatomic) int user_id;
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *email;
+@property(nonatomic, strong) NSString *md5email;
 @property(nonatomic) int tracks_count;
 @end

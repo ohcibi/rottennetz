@@ -11,6 +11,7 @@
 
 @interface KeilerHTTPClient : NSObject {
     NSOperationQueue * _queue;
+    NSOperationQueue * _asyncQueue;
 }
 
 +(KeilerHTTPClient *)sharedClient;
@@ -20,5 +21,5 @@
 -(void)startPUTRequest:(JSONRequest *)request;
 -(void)startDELETERequest:(JSONRequest *)request;
 
-@property(nonatomic, strong) NSOperationQueue * queue;
+-(void)startAsyncOperationWithBlock:(void (^)(void))block;
 @end
