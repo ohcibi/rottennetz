@@ -347,22 +347,46 @@
         <!--Track View Controller-->
         <scene sceneID="kCh-Jh-CYZ">
             <objects>
-                <viewController id="yhL-Uf-WkV" customClass="TrackViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="yhL-Uf-WkV" customClass="TrackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hJA-Cs-t4D">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="t1h-ib-Btn"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="t1h-ib-Btn">
+                                <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="0.19" colorSpace="calibratedRGB"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="rju-Ak-nvA">
+                                <items>
+                                    <barButtonItem style="plain" id="GCi-5U-Hdz">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="O0y-jr-jmP">
+                                            <rect key="frame" x="6" y="8" width="176" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Normal"/>
+                                                <segment title="Satellit"/>
+                                                <segment title="Hybrid"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="changeMapType:" destination="yhL-Uf-WkV" eventType="valueChanged" id="R4u-NU-pao"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="t1h-ib-Btn" firstAttribute="bottom" secondItem="hJA-Cs-t4D" secondAttribute="bottom" type="default" id="BZ7-ap-KzJ"/>
                             <constraint firstItem="t1h-ib-Btn" firstAttribute="top" secondItem="hJA-Cs-t4D" secondAttribute="top" type="default" id="MzX-4a-8Zs"/>
-                            <constraint firstItem="t1h-ib-Btn" firstAttribute="bottom" secondItem="hJA-Cs-t4D" secondAttribute="bottom" type="default" id="Sme-pM-Bbz"/>
                             <constraint firstItem="t1h-ib-Btn" firstAttribute="leading" secondItem="hJA-Cs-t4D" secondAttribute="leading" type="default" id="VzC-Qj-Ztg"/>
+                            <constraint firstItem="rju-Ak-nvA" firstAttribute="trailing" secondItem="hJA-Cs-t4D" secondAttribute="trailing" type="default" id="ddD-J9-aAl"/>
+                            <constraint firstItem="rju-Ak-nvA" firstAttribute="bottom" secondItem="hJA-Cs-t4D" secondAttribute="bottom" type="default" id="hOn-67-OEn"/>
                             <constraint firstItem="t1h-ib-Btn" firstAttribute="trailing" secondItem="hJA-Cs-t4D" secondAttribute="trailing" type="default" id="pRF-zT-sfg"/>
+                            <constraint firstItem="rju-Ak-nvA" firstAttribute="leading" secondItem="hJA-Cs-t4D" secondAttribute="leading" type="default" id="sce-mv-S0I"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fHR-pB-sHe"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="t1h-ib-Btn" id="qGR-0I-zaS"/>
                     </connections>

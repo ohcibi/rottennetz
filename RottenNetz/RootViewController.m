@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.session = [UserSession sharedSession];
-    self.tracker = [Tracker sharedTracker];
+    self.tracker = [TrackerService sharedTracker];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

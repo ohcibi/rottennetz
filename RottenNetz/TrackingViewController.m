@@ -23,7 +23,7 @@
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
     
     self.client = [KeilerClient sharedClient];
-    self.tracker = [Tracker sharedTracker];
+    self.tracker = [TrackerService sharedTracker];
     
     if (!self.tracker.tracking) {
         [self initTrack];

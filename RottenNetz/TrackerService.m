@@ -1,30 +1,30 @@
 //
-//  Tracker.m
+//  TrackerService.m
 //  RottenNetz
 //
 //  Created by ohcibi on 23.01.13.
 //  Copyright (c) 2013 ohcibi. All rights reserved.
 //
 
-#import "Tracker.h"
+#import "TrackerService.h"
 #import "JSONRequest.h"
 
-@implementation Tracker
+@implementation TrackerService
 @synthesize track_id = _track_id;
 @synthesize tracking = _tracking;
 @synthesize locationManager = _locationManager;
 @synthesize lastLocation = _lastLocation;
 @synthesize client = _client;
 
-static Tracker * _sharedTracker = nil;
+static TrackerService * _sharedTracker = nil;
 
-+(Tracker *)sharedTracker {
++(TrackerService *)sharedTracker {
     if (nil == _sharedTracker) {
-        _sharedTracker = [[Tracker alloc] init];
+        _sharedTracker = [[TrackerService alloc] init];
     }
     return _sharedTracker;
 }
--(Tracker *)init {
+-(TrackerService *)init {
     self = [super init];
     if (self) {
         self.locationManager = [[CLLocationManager alloc] init];

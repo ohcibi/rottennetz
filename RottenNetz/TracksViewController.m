@@ -61,6 +61,8 @@
     [self.tracks removeAllObjects];
     for (NSDictionary * track in response) {
         Track * newTrack = [[Track alloc] initWithId:[[track objectForKey:@"id"] integerValue]
+                                            finished:[[track objectForKey:@"finished"] boolValue]
+                                                user:self.user
                                         andCreatedAt:[track objectForKey:@"created_at"]];
         [self.tracks addObject:newTrack];
     }
@@ -103,7 +105,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrackCell"];
     
     Track * track = [self.tracks objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Track %d", indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"Track #%d", track.track_id];
     cell.detailTextLabel.text = [track shortCreatedAt];
     return cell;
 }

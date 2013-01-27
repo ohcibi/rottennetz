@@ -1,5 +1,5 @@
 //
-//  Tracker.h
+//  TrackerService.h
 //  RottenNetz
 //
 //  Created by ohcibi on 23.01.13.
@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "KeilerClient.h"
 
-@interface Tracker : NSObject <CLLocationManagerDelegate> {
+@interface TrackerService : NSObject <CLLocationManagerDelegate> {
     int _track_id;
     BOOL _tracking;
     CLLocationManager * _locationManager;
@@ -18,7 +18,7 @@
     KeilerClient * _client;
 }
 
-+(Tracker *)sharedTracker;
++(TrackerService *)sharedTracker;
 
 -(void)startTracking;
 -(void)stopTracking;

@@ -10,12 +10,16 @@
 
 @implementation Track
 @synthesize track_id = _track_id;
+@synthesize isFinished = _isFinished;
 @synthesize created_at = _created_at;
+@synthesize user = _user;
 
--(id)initWithId:(int)track_id andCreatedAt:(NSString *)created_at {
+-(id)initWithId:(int)track_id finished:(BOOL)finished user:(User *)user andCreatedAt:(NSString *)created_at {
     self = [super init];
     if (self) {
         self.track_id = track_id;
+        _user = user;
+        self.isFinished = finished;
         self.created_at = [self createdAtFromString:created_at];
     }
     return self;

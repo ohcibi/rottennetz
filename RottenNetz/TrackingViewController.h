@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "KeilerClient.h"
-#import "Tracker.h"
+#import "TrackerService.h"
 
 @interface TrackingViewController : UIViewController {
-    Tracker * _tracker;
+    TrackerService * _tracker;
     KeilerClient * _client;
 }
 - (IBAction)changeMapType:(UISegmentedControl *)sender;
@@ -20,6 +20,6 @@
 
 @property(nonatomic, weak) IBOutlet MKMapView * mapView;
 
-@property(nonatomic, strong) Tracker * tracker;
+@property(nonatomic, strong) TrackerService * tracker;
 @property(nonatomic, strong) KeilerClient * client;
 @end
