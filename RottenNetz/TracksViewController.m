@@ -106,7 +106,7 @@
     
     Track * track = [self.tracks objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"Track #%d", track.track_id];
-    cell.detailTextLabel.text = [track shortCreatedAt];
+    cell.detailTextLabel.text = [track shortDateStringFromDate:track.created_at];
     return cell;
 }
 

@@ -15,7 +15,7 @@
 
 @implementation UsersViewController
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
     _users = [[NSMutableArray alloc] init];
     
@@ -24,11 +24,11 @@
                             action:@selector(refreshUsers:)
                   forControlEvents:UIControlEventValueChanged];
 }
-- (void)viewWillAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadUsers];
 }
-- (void)refreshUsers:(id)sender {
+-(void)refreshUsers:(id)sender {
     [self reloadUsers];
 }
 -(void)reloadUsers {
@@ -39,10 +39,7 @@
 -(void)finishReloadUsers:(NSDictionary *)response {
     [_users removeAllObjects];
     for (NSDictionary * user in response) {
-        User * newUser = [[User alloc] initWithName:[user objectForKey:@"name"]
-                                   userId:[[user objectForKey:@"id"] integerValue]
-                           andTracksCount:[[user objectForKey:@"tracks_count"] integerValue]];
-        newUser.md5email = [user objectForKey:@"md5email"];
+        User * newUser = [User userWithDictionary:user];
         [_users addObject:newUser];
     }
     [self.tableView reloadData];
@@ -57,20 +54,17 @@
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:title];
     [self.refreshControl endRefreshing];
 }
-
-- (void)didReceiveMemoryWarning {
+-(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_users count];
 }
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cid = @"UserCell";
     UserCell * cell = [tableView dequeueReusableCellWithIdentifier:cid];
     
@@ -78,14 +72,37 @@
     cell.titleLabel.text = user.name;
     cell.detailsLabel.text = [NSString stringWithFormat:@"%d Tracks", user.tracks_count];
     
-    [cell.activityIndicator startAnimating];
-    [[KeilerHTTPClient sharedClient] startAsyncOperationWithBlock:^(void) {
-        NSString * gravatarUrl = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=112&d=retro", user.md5email];
-        NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:gravatarUrl]];
-        UIImage * gravatar = [UIImage imageWithData:imageData scale:2]; // retina compat
-        cell.gravatarImage.image = gravatar;
-        [cell.activityIndicator stopAnimating];
-    }];
+    if (nil == user.lastSeen) {
+        cell.lastSeenLabel.text = @"Gar nicht";
+        cell.lastSeenLabel.textColor = [UIColor colorWithRed:0.6 green:0.01 blue:0.01 alpha:1];
+    } else {
+        
+        if([user isOnline]) {
+            cell.lastSeenLabel.textColor =[UIColor colorWithRed:0.01 green:0.6 blue:0.01 alpha:1];
+        } else {
+            cell.lastSeenLabel.textColor =[UIColor colorWithRed:0.01 green:0.01 blue:0.6 alpha:1];
+        }
+    
+        cell.lastSeenLabel.text = [user shortDateStringFromDate:user.lastSeen];
+    }
+
+    if (![cell.md5email isEqualToString:user.md5email]) {
+        // we must load a new gravatar
+        [cell.activityIndicator startAnimating];
+        [cell.gravatarImage setAlpha:0];
+        [[KeilerHTTPClient sharedClient] startAsyncOperationWithBlock:^(void) {
+            NSString * gravatarUrl = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=112&d=retro", user.md5email];
+            NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:gravatarUrl]];
+            UIImage * gravatar = [UIImage imageWithData:imageData scale:2]; // retina compat
+            cell.gravatarImage.image = gravatar;
+            [cell.activityIndicator stopAnimating];
+            
+            [UIView animateWithDuration:1 animations:^(void) {
+                [cell.gravatarImage setAlpha:1];
+            }];
+        }];
+        cell.md5email = user.md5email;
+    }
     return cell;
 }
 

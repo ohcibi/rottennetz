@@ -9,5 +9,5 @@
 #import "UserCell.h"
 
 @implementation UserCell
-
+@synthesize md5email;
 @end

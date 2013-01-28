@@ -485,24 +485,47 @@
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xDF-rP-Rcq">
                                             <color key="color" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="0.62" colorSpace="calibratedRGB"/>
                                         </activityIndicatorView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zuletzt gesehen:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwh-zX-GfC">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="95" id="7oH-DN-Qr5"/>
+                                                <constraint firstAttribute="height" constant="21" id="ctj-T0-u6D"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="333-K5-fOF">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="136" id="XPK-9w-da5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="hEY-U5-POe" firstAttribute="leading" secondItem="Czx-AM-8gJ" secondAttribute="leading" constant="6" id="1Lh-S7-TH2"/>
                                     <constraint firstItem="c7W-sb-1wA" firstAttribute="leading" secondItem="hEY-U5-POe" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="2F0-YV-bLy"/>
                                     <constraint firstItem="8l9-zc-biR" firstAttribute="top" secondItem="hEY-U5-POe" secondAttribute="top" type="default" id="3du-VN-57S"/>
+                                    <constraint firstItem="333-K5-fOF" firstAttribute="top" secondItem="pwh-zX-GfC" secondAttribute="top" type="default" id="4LI-S8-Woe"/>
                                     <constraint firstItem="c7W-sb-1wA" firstAttribute="centerY" secondItem="hEY-U5-POe" secondAttribute="centerY" type="default" id="5b1-1g-ya1"/>
                                     <constraint firstItem="c7W-sb-1wA" firstAttribute="trailing" secondItem="8l9-zc-biR" secondAttribute="trailing" type="default" id="D9R-jy-XiD"/>
+                                    <constraint firstItem="pwh-zX-GfC" firstAttribute="bottom" secondItem="hEY-U5-POe" secondAttribute="bottom" type="default" id="E41-sT-ZvO"/>
                                     <constraint firstItem="8l9-zc-biR" firstAttribute="leading" secondItem="hEY-U5-POe" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="IjN-dR-boH"/>
+                                    <constraint firstItem="pwh-zX-GfC" firstAttribute="leading" secondItem="hEY-U5-POe" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="LrY-g8-iie"/>
                                     <constraint firstItem="xDF-rP-Rcq" firstAttribute="top" secondItem="Czx-AM-8gJ" secondAttribute="top" constant="13" id="PcT-8x-GMZ"/>
                                     <constraint firstItem="hEY-U5-POe" firstAttribute="centerY" secondItem="Czx-AM-8gJ" secondAttribute="centerY" type="default" id="Q53-oo-5Io"/>
+                                    <constraint firstItem="hEY-U5-POe" firstAttribute="leading" secondItem="Czx-AM-8gJ" secondAttribute="leading" constant="6" id="V1A-Lu-7gX"/>
+                                    <constraint firstItem="333-K5-fOF" firstAttribute="bottom" secondItem="pwh-zX-GfC" secondAttribute="bottom" type="default" id="Ygz-Sb-MUm"/>
                                     <constraint firstItem="xDF-rP-Rcq" firstAttribute="centerX" secondItem="hEY-U5-POe" secondAttribute="centerX" type="default" id="ZFH-kS-s4o"/>
+                                    <constraint firstAttribute="trailing" secondItem="333-K5-fOF" secondAttribute="trailing" constant="20" type="default" id="bTM-tX-2hP"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="activityIndicator" destination="xDF-rP-Rcq" id="keB-NZ-rZz"/>
                                     <outlet property="detailsLabel" destination="c7W-sb-1wA" id="bBg-Il-CPW"/>
                                     <outlet property="gravatarImage" destination="hEY-U5-POe" id="370-XS-nnE"/>
+                                    <outlet property="lastSeenLabel" destination="333-K5-fOF" id="cPw-BQ-lBc"/>
                                     <outlet property="titleLabel" destination="8l9-zc-biR" id="GIm-Q6-mYL"/>
                                     <segue destination="ekp-I7-Cm5" kind="push" identifier="usersToTracksSegue" id="nYE-22-R8l"/>
                                 </connections>
@@ -602,6 +625,7 @@
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gravatarImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="lastSeenLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

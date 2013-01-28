@@ -30,6 +30,7 @@
 		E2C9030716B5DF5B00FC3027 /* map_pin_end@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C9030616B5DF5B00FC3027 /* map_pin_end@2x.png */; };
 		E2C9030916B5DFF100FC3027 /* map_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C9030816B5DFF100FC3027 /* map_pin@2x.png */; };
 		E2C9030B16B5DFFB00FC3027 /* map_pin_start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C9030A16B5DFFB00FC3027 /* map_pin_start@2x.png */; };
+		E2C9030E16B6A28B00FC3027 /* KeilerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C9030D16B6A28B00FC3027 /* KeilerModel.m */; };
 		E2D81DD916AEB7D70029D8BA /* RottenBoardIPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D81DD816AEB7D70029D8BA /* RottenBoardIPhone.storyboard */; };
 		E2D81DE016AEC10E0029D8BA /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D81DDC16AEC10E0029D8BA /* map.png */; };
 		E2D81DE616AECDD30029D8BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D81DE516AECDD30029D8BA /* MapKit.framework */; };
@@ -106,6 +107,8 @@
 		E2C9030616B5DF5B00FC3027 /* map_pin_end@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pin_end@2x.png"; sourceTree = "<group>"; };
 		E2C9030816B5DFF100FC3027 /* map_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pin@2x.png"; sourceTree = "<group>"; };
 		E2C9030A16B5DFFB00FC3027 /* map_pin_start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pin_start@2x.png"; sourceTree = "<group>"; };
+		E2C9030C16B6A28B00FC3027 /* KeilerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeilerModel.h; sourceTree = "<group>"; };
+		E2C9030D16B6A28B00FC3027 /* KeilerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeilerModel.m; sourceTree = "<group>"; };
 		E2D81DD816AEB7D70029D8BA /* RottenBoardIPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RottenBoardIPhone.storyboard; sourceTree = "<group>"; };
 		E2D81DDC16AEC10E0029D8BA /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		E2D81DE516AECDD30029D8BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -187,6 +190,8 @@
 				E250C0A616AF01C600022B70 /* Track.m */,
 				E2D81DEB16AEDB4B0029D8BA /* User.h */,
 				E2D81DEC16AEDB4B0029D8BA /* User.m */,
+				E2C9030C16B6A28B00FC3027 /* KeilerModel.h */,
+				E2C9030D16B6A28B00FC3027 /* KeilerModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				E2FBC6DD16B580220072C191 /* UserAnnotation.m in Sources */,
 				E2C902FF16B5BB2E00FC3027 /* PUTOperation.m in Sources */,
 				E2C9030516B5CCD100FC3027 /* UserCell.m in Sources */,
+				E2C9030E16B6A28B00FC3027 /* KeilerModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

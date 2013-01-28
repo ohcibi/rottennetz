@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KeilerModel.h"
 #import "User.h"
 
-@interface Track : NSObject {
+@interface Track : KeilerModel {
     int _track_id;
     BOOL _isFinished;
     NSDate * _created_at;
@@ -17,7 +18,6 @@
 }
 
 -(id)initWithId:(int)track_id finished:(BOOL)finished user:(User *)user andCreatedAt:(NSString *)created_at;
--(NSString *)shortCreatedAt;
 
 @property(nonatomic) int track_id;
 @property(nonatomic) BOOL isFinished;

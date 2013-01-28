@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *gravatarImage;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastSeenLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+@property(nonatomic, strong) NSString * md5email;
 @end
