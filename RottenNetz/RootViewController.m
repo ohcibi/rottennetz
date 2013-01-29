@@ -38,8 +38,10 @@
     
     if (self.tracker.tracking) {
         [self.trackingButton setTitle:@"Zum Tracking" forState:UIControlStateNormal];
+        [self.trackingButton setBackgroundImage:[UIImage imageNamed:@"footprints.png"] forState:UIControlStateNormal];
     } else {
         [self.trackingButton setTitle:@"Tracking starten" forState:UIControlStateNormal];
+        [self.trackingButton setBackgroundImage:[UIImage imageNamed:@"footprints_red.png"] forState:UIControlStateNormal];
     }
 }
 

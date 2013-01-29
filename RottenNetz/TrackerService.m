@@ -49,11 +49,15 @@ static TrackerService * _sharedTracker = nil;
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     CLLocation * location = [locations lastObject];
     @synchronized(self.lastLocation) {
-        if (nil == self.lastLocation || [location distanceFromLocation:self.lastLocation] > 10) {
+        if (nil == self.lastLocation ||
+            [self accuracyRadiusOf:location intersectsAccuracyRadiusOf:self.lastLocation]) {
                 self.lastLocation = location;
                 [self uploadLocation:self.lastLocation];
         }
     }
+}
+-(BOOL)accuracyRadiusOf:(CLLocation *)oneLocation intersectsAccuracyRadiusOf:(CLLocation *)otherLocation {
+    return [oneLocation distanceFromLocation:otherLocation] > (oneLocation.horizontalAccuracy + otherLocation.horizontalAccuracy);
 }
 -(void)uploadLocation:(CLLocation *)location {
     NSString * url = [NSString stringWithFormat:@"/api/tracks/%d/coordinates", self.track_id];

@@ -91,7 +91,7 @@
     if (annotation == _userAnnotation) {
         if (!_userAnnotationView) {
             _userAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:USERANNOTATIONID];
-            _userAnnotationView.image = [UIImage imageNamed:@"map_pin.png"];
+            _userAnnotationView.image = [UIImage imageNamed:@"map_pin_start.png"];
             _userAnnotationView.canShowCallout = YES;
         }
         return _userAnnotationView;
