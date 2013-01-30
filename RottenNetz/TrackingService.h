@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "KeilerHTTPClient.h"
 
-@interface TrackerService : NSObject <CLLocationManagerDelegate> {
+@interface TrackingService : NSObject <CLLocationManagerDelegate> {
     int _track_id;
     BOOL _tracking;
     CLLocationManager * _locationManager;
@@ -18,7 +18,7 @@
     KeilerHTTPClient * _client;
 }
 
-+(TrackerService *)sharedTracker;
++(TrackingService *)sharedTracker;
 
 -(void)startTracking;
 -(void)stopTracking;

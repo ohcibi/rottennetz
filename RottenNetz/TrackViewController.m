@@ -15,7 +15,7 @@
 #import "TrackViewController.h"
 #import "JSONRequest.h"
 #import "KeilerHTTPClient.h"
-#import "StalkerService.h"
+#import "StalkingService.h"
 
 @implementation TrackViewController
 @synthesize track = _track;
@@ -29,15 +29,15 @@
     if (self.track.isFinished) {
         [self drawTrack];
     } else {
-        StalkerService * stalker = [StalkerService sharedStalkerForTrackId:self.track.track_id];
+        StalkingService * stalker = [StalkingService sharedStalkerForTrackId:self.track.track_id];
         [stalker addObserver:self forKeyPath:@"location" options:NSKeyValueObservingOptionNew context:nil];
         [stalker startStalking];
     }
 }
 -(void)viewWillDisappear:(BOOL)animated {
     if (!self.track.isFinished) {
-        [[StalkerService sharedStalkerForTrackId:self.track.track_id] stopStalking];
-        [[StalkerService sharedStalkerForTrackId:self.track.track_id] removeObserver:self forKeyPath:@"location"];
+        [[StalkingService sharedStalkerForTrackId:self.track.track_id] stopStalking];
+        [[StalkingService sharedStalkerForTrackId:self.track.track_id] removeObserver:self forKeyPath:@"location"];
     }
 }
 - (void)didReceiveMemoryWarning {

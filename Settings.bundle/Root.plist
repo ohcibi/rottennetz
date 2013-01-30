@@ -16,7 +16,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string></string>
+			<string>http://rotte.dwgadf.de</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>

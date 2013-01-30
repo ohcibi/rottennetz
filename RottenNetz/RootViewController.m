@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.session = [UserSession sharedSession];
-    self.tracker = [TrackerService sharedTracker];
+    self.tracker = [TrackingService sharedTracker];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface StalkerService : NSObject {
+@interface StalkingService : NSObject {
     int _track_id;
     BOOL _isStalking;
     NSTimer * _timer;
     CLLocation * _location;
 }
 
-+(StalkerService *)sharedStalkerForTrackId:(int)track_id;
++(StalkingService *)sharedStalkerForTrackId:(int)track_id;
 
 -(void)startStalking;
 -(void)stalk;

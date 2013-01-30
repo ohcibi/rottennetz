@@ -6,28 +6,28 @@
 //  Copyright (c) 2013 ohcibi. All rights reserved.
 //
 
-#import "StalkerService.h"
+#import "StalkingService.h"
 #import "KeilerHTTPClient.h"
 #import "JSONRequest.h"
 
 
-@interface StalkerService ()
-+(StalkerService *)createStalkerForTrackId:(int)trackId;
+@interface StalkingService ()
++(StalkingService *)createStalkerForTrackId:(int)trackId;
 @end
 
-@implementation StalkerService
+@implementation StalkingService
 @synthesize track_id = _track_id;
 @synthesize isStalking = _isStalking;
 @synthesize location = _location;
 @synthesize timer = _timer;
 static NSMutableDictionary * _stalkers;
 
-+(StalkerService *)sharedStalkerForTrackId:(int)track_id {
++(StalkingService *)sharedStalkerForTrackId:(int)track_id {
     if (nil == _stalkers) {
         _stalkers = [[NSMutableDictionary alloc] init];
     }
     NSNumber * numTrackId = [NSNumber numberWithInt:track_id];
-    StalkerService * stalker = [_stalkers objectForKey:numTrackId];
+    StalkingService * stalker = [_stalkers objectForKey:numTrackId];
     if (nil == stalker) {
         stalker = [self createStalkerForTrackId:track_id];
         [_stalkers setObject:stalker forKey:numTrackId];
@@ -35,12 +35,12 @@ static NSMutableDictionary * _stalkers;
     return stalker;
 }
 
-+(StalkerService *)createStalkerForTrackId:(int)trackId {
-    StalkerService * stalker = [[StalkerService alloc] initWithTrackId:trackId];
++(StalkingService *)createStalkerForTrackId:(int)trackId {
+    StalkingService * stalker = [[StalkingService alloc] initWithTrackId:trackId];
     return stalker;
 }
 
--(StalkerService *)initWithTrackId:(int)track_id {
+-(StalkingService *)initWithTrackId:(int)track_id {
     self = [super init];
     if (self) {
         self.track_id = track_id;

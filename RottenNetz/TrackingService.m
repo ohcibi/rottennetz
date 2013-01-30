@@ -6,25 +6,25 @@
 //  Copyright (c) 2013 ohcibi. All rights reserved.
 //
 
-#import "TrackerService.h"
+#import "TrackingService.h"
 #import "JSONRequest.h"
 
-@implementation TrackerService
+@implementation TrackingService
 @synthesize track_id = _track_id;
 @synthesize tracking = _tracking;
 @synthesize locationManager = _locationManager;
 @synthesize lastLocation = _lastLocation;
 @synthesize client = _client;
 
-static TrackerService * _sharedTracker = nil;
+static TrackingService * _sharedTracker = nil;
 
-+(TrackerService *)sharedTracker {
++(TrackingService *)sharedTracker {
     if (nil == _sharedTracker) {
-        _sharedTracker = [[TrackerService alloc] init];
+        _sharedTracker = [[TrackingService alloc] init];
     }
     return _sharedTracker;
 }
--(TrackerService *)init {
+-(TrackingService *)init {
     self = [super init];
     if (self) {
         self.locationManager = [[CLLocationManager alloc] init];
